@@ -1,8 +1,18 @@
 <?php
-$params = array_merge(
-    require(__DIR__ . '/../../common/config/params.php'),
-    require(__DIR__ . '/params.php')
-);
+
+if (YII_ENV_TEST) {
+    $params = array_merge(
+        require(__DIR__ . '/../../common/config/params.php'),
+        require(__DIR__ . '/../../common/config/params-local.php'),
+        require(__DIR__ . '/params.php')
+    );
+} else {
+    $params = array_merge(
+        require(__DIR__ . '/../../common/config/params.php'),
+        require(__DIR__ . '/params.php')
+    );
+}
+
 
 return [
     'id' => 'app-frontend',
