@@ -25,40 +25,46 @@ AppAsset::register($this);
 </head>
 <?php $this->head() ?>
 
-<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-5 mb-4 bg-white border-bottom box-shadow" >
-    <!--<h5 class="my-0 mr-md-auto font-weight-normal"><a href="/">TV APP</a></h5>
-    <nav class="my-2 my-md-0 mr-md-3">
-        <a class="p-2 text-dark" href="/">APP</a>
-        <a class="p-2 text-dark" href="/">Support</a>
-        <a class="p-2 text-dark" href="/">ABOUT</a>
-    </nav>-->
+<?php if(Yii::$app->user->isGuest): ?>
 
-    <?php if(Yii::$app->user->isGuest): ?>
-	
-        <a href="<?= Url::to(['index/view','id'=>1])?>" class="btn btn-primary btn-lg btn-block">Pay For App</a>
-	<!--
-	
-    <nav class="my-2 my-md-0 mr-md-3">
-	<a class="btn btn-outline-primary" href="<?= Url::to(['site/signup']) ?>">Signup</a>
-        &nbsp;
-        <a class="btn btn-outline-primary" href="<?= Url::to(['site/login']) ?>">Login</a>
-    </nav>
-	-->
-    <?php else: ?>
-        <div class="dropdown open my-dropdown">
-            <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <?= Yii::$app->user->identity->username ?>
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenu1" >
-                <a class="dropdown-item" href="#">Cart</a>
-                <a class="dropdown-item" href="#">My APP</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="<?= Url::to(['site/logout']) ?>">logout</a>
-            </div>
-        </div>
-    <?php endif; ?>
+
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-5 mb-4 bg-white border-bottom box-shadow" >
+   <a href="<?= Url::to(['index/view','id'=>1])?>" class="btn btn-primary btn-lg btn-block">Pay For App</a>
 </div>
 
+
+<?php else: ?>
+
+    <nav class="navbar navbar-expand-md bg-primary navbar-dark p-3 px-md-5 mb-4 ">
+        <a class="navbar-brand" href="/"><b>TV APP</b></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= Url::to(['index/show-list']) ?>">Channel</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= Url::to(['site/contact']) ?>">About</a>
+                </li>
+                <li class="nav-item dropdown pull-right">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                        <?= Yii::$app->user->identity->username; ?>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">My Account</a>
+                        <a class="dropdown-item" href="<?php echo Url::to(['site/logout']) ?>">logout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+<!--        -->
+<!--        -->
+
+    </nav>
+<?php endif; ?>
 
 <?php $this->beginBody() ?>
 <body class="bg-light">
