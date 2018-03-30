@@ -1,15 +1,17 @@
 <?php
-$params = array_merge(
-    require(__DIR__ . '/../../common/config/params.php'),
-    require(__DIR__ . '/params.php')
-);
-
-if (file_exists(__DIR__ . '/../../common/config/params-local.php')) {
+if (YII_ENV) {
     $params = array_merge(
-        $params,
-        require(__DIR__ . '/../../common/config/params-local.php')
+        require(__DIR__ . '/../../common/config/params.php'),
+        require(__DIR__ . '/../../common/config/params-local.php'),
+        require(__DIR__ . '/params.php')
+    );
+} else {
+    $params = array_merge(
+        require(__DIR__ . '/../../common/config/params.php'),
+        require(__DIR__ . '/params.php')
     );
 }
+
 
 return [
     'id' => 'app-backend',

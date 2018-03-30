@@ -16,6 +16,7 @@ if (YII_ENV_TEST) {
 
 return [
     'id' => 'app-frontend',
+    'name' => 'TV APP',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'language'=>'en-us',

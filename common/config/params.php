@@ -19,7 +19,7 @@ return [
         'BUCKET'=>'',//bucket
     ],
 
-    'mailer' => [
+   /* 'mailer' => [
         'class' => 'yii\swiftmailer\Mailer',
         'viewPath' => '@common/mail',
         // send all mails to a file by default. You have to set
@@ -36,10 +36,10 @@ return [
         ],
         'messageConfig'=>[
             'charset'=>'UTF-8',
-            'from'=>['xxxxx@foxmail.com'=>'xxx'],
+            'from'=>['xxxxx@foxmail.com'=>'TV APP'],
 
         ],
-    ],
+    ],*/
 
 
 

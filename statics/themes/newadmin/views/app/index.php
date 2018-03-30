@@ -44,7 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'free_day',
             // 'imgae',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'common\grid\MyActionColumn'],
         ],
     ]); ?>
 </div>
