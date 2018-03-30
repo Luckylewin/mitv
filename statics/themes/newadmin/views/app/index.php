@@ -44,7 +44,17 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'free_day',
             // 'imgae',
 
-            ['class' => 'common\grid\MyActionColumn'],
+            [
+                    'class' => 'common\grid\MyActionColumn',
+                    'template' => '{upload} {view} {update} {delete}',
+                    'buttons' => [
+                        'upload' => function($url, $model, $key) {
+                            return Html::a('上传APK', \yii\helpers\Url::to(['app/upload','id'=>$model->id]),[
+                                'class' =>'btn btn-default btn-xs'
+                            ]);
+                        }
+                    ]
+            ],
         ],
     ]); ?>
 </div>

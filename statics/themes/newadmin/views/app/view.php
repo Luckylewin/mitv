@@ -14,6 +14,30 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
+
+
+    <?= DetailView::widget([
+        'model' => $model,
+        'attributes' => [
+            'id',
+            'name',
+             [
+                     'attribute' => 'url',
+                     'format' => 'raw',
+                     'value' => function($model) {
+                            return $model->url ? Html::a($model->url,\common\oss\Aliyunoss::getDownloadUrl($model->url)) : '';
+                     }
+             ],
+            'introduce:ntext',
+            'month_price',
+            'season_price',
+            'half_price',
+            'year_price',
+            'free_day',
+            'imgae',
+        ],
+    ]) ?>
+
     <p>
         <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Delete', ['delete', 'id' => $model->id], [
@@ -24,21 +48,5 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]) ?>
     </p>
-
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'id',
-            'name',
-            'url:url',
-            'introduce:ntext',
-            'month_price',
-            'season_price',
-            'half_price',
-            'year_price',
-            'free_day',
-            'imgae',
-        ],
-    ]) ?>
 
 </div>

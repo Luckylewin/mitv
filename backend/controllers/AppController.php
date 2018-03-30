@@ -74,6 +74,23 @@ class AppController extends Controller
         }
     }
 
+    public function actionUpload($id)
+    {
+        $model = App::findOne($id);
+
+        if (!$model) {
+            throw new \Exception("page not found");
+        }
+
+        if ($model->load(Yii::$app->request->post()) && $model->save(false)) {
+            return $this->redirect(['view', 'id' => $model->id]);
+        } else {
+            return $this->render('upload', [
+                'model' => $model,
+            ]);
+        }
+    }
+
     /**
      * Updates an existing App model.
      * If update is successful, the browser will be redirected to the 'view' page.
