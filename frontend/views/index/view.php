@@ -6,6 +6,13 @@
 </style>
 
 <div class="row">
+
+    <div>
+        <?= $app->introduce; ?>
+    </div>
+</div>
+
+<div class="row">
     <div class="col-md-3 col-sm-6">
         <div class="pricingTable">
             <div class="pricingTable-header">

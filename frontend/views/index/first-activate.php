@@ -9,7 +9,7 @@ use yii\widgets\ActiveForm;
 ?>
 
 <div class="row jumbotron">
-    
+
      <div>
          <?= $app->introduce; ?>
      </div>
