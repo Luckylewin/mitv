@@ -43,10 +43,10 @@ AppAsset::register($this);
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= Url::to(['index/show-list']) ?>">Channel</a>
+                    <a class="nav-link" href="<?= Url::to(['index/show-list','app'=>1]) ?>">Channel</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= Url::to(['site/contact']) ?>">About</a>
+                    <a class="nav-link" href="<?= Url::to(['site/about']) ?>">About</a>
                 </li>
                 <li class="nav-item dropdown pull-right">
                     <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
