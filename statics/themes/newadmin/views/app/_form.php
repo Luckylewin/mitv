@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use common\widgets\OssUploader;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\App */
@@ -14,7 +15,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= \common\widgets\OssUploader::widget([
+    <?= OssUploader::widget([
         'model' => $model,
         'form' => $form,
         'field' => 'imgae',

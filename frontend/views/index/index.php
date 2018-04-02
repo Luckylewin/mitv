@@ -9,7 +9,7 @@
                 <h1 class="card-title pricing-card-title">$<?= $_app->month_price; ?> <small class="text-muted">/ mo</small></h1>
                 <ul class="list-unstyled mt-3 mb-4">
                     <a href="<?= \yii\helpers\Url::to(['index/view', 'id' => $_app->id]) ?>">
-                        <img src="<?= \common\oss\Aliyunoss::getDownloadUrl($_app->imgae) ?>" alt="">
+                        <img class="app-img" src="<?= \common\oss\Aliyunoss::getDownloadUrl($_app->imgae) ?>" alt="">
                     </a>
                 </ul>
                 <a href="<?= \yii\helpers\Url::to(['index/view', 'id' => $_app->id]) ?>">

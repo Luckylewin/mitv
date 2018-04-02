@@ -30,3 +30,5 @@ html {
 a:hover{text-decoration: none;}
 .mb-md-5, .my-md-5{margin-bottom: 2rem!important;}
 .my-dropdown{margin-right: 40px;}
+
+.app-img{width: 192px;height: 192px;}
