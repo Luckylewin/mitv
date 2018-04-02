@@ -36,12 +36,12 @@ $this->params['breadcrumbs'][] = $this->title;
                     }
             ],
             'name',
-            'introduce:ntext',
-            'month_price',
+
+            //'month_price',
             // 'season_price',
             // 'half_price',
             // 'year_price',
-            // 'free_day',
+            'free_day',
             // 'imgae',
 
             [
