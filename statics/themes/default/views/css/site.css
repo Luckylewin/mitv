@@ -32,3 +32,8 @@ a:hover{text-decoration: none;}
 .my-dropdown{margin-right: 40px;}
 
 .app-img{width: 192px;height: 192px;}
+
+img{
+    max-width: 100%;
+    height:auto;
+}
