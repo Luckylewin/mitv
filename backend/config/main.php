@@ -19,8 +19,14 @@ return [
     'controllerNamespace' => 'backend\controllers', //控制器默认命名空间
     'bootstrap' => ['log'],
     'modules' => [
+        'redactor' => [
+            'class' => 'yii\redactor\RedactorModule',
+            'uploadDir' => '@uploads',
+            'imageAllowExtensions'=>['jpg','png','gif']
+        ],
         'backup' => [
-            'class' => 'spanjeta\modules\backup\Module'
+            'class' => 'spanjeta\modules\backup\Module',
+
         ]
     ],    //模块
     'defaultRoute' => 'index/frame',   //默认路由

@@ -28,7 +28,10 @@ $this->params['breadcrumbs'][] = $this->title;
                             return $model->url ? Html::a($model->url,\common\oss\Aliyunoss::getDownloadUrl($model->url)) : '';
                      }
              ],
-            'introduce:ntext',
+            [
+                    'attribute' => 'introduce',
+                    'format' => 'raw'
+            ],
             'month_price',
             'season_price',
             'half_price',

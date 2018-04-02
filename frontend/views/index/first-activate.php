@@ -7,6 +7,18 @@ use yii\widgets\ActiveForm;
 /* @var $model common\models\SysUser */
 /* @var $form ActiveForm */
 ?>
+
+<div class="row jumbotron">
+    
+     <div>
+         <?= $app->introduce; ?>
+     </div>
+</div>
+
+<div class="row">
+    <a target="_self" href="<?= \yii\helpers\Url::to(['index/download', 'app'=>$app->id]) ?>" class="btn btn-primary btn-lg btn-block text-white">DOWNLOAD APK</a>
+</div>
+
 <div class="py-5 text-center">
     <h2>Activate Account</h2>
 </div>

@@ -11,10 +11,12 @@ namespace frontend\controllers;
 use common\models\ActivateLog;
 use common\models\App;
 use common\models\Order;
+use common\oss\Aliyunoss;
 use yii\helpers\Url;
 use yii\web\Controller;
 use yii\web\ForbiddenHttpException;
 use Yii;
+use yii\web\NotFoundHttpException;
 
 class IndexController extends Controller
 {
@@ -23,7 +25,7 @@ class IndexController extends Controller
         if (parent::beforeAction($action)) {
 
             if (in_array($action->id, ['view','first-activate']) && Yii::$app->user->isGuest) {
-                return $this->redirect(Url::to(['site/login','des' => base64_encode(Yii::$app->request->referrer)]));
+                return $this->redirect(Url::to(['site/signup','des' => base64_encode(Yii::$app->request->referrer)]));
             }
         }
         return true;
@@ -159,7 +161,13 @@ class IndexController extends Controller
 
     public function actionDownload($app)
     {
-        return $this->redirect(\Yii::$app->request->referrer);
+        $app = App::findOne($app);
+        if (is_null($app) || $app->url == '') {
+            throw  new NotFoundHttpException('sorry , we miss the download url');
+        }
+        return $this->redirect(Aliyunoss::getDownloadUrl($app->url));
     }
+
+
 
 }
