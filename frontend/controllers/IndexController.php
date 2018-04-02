@@ -103,7 +103,7 @@ class IndexController extends Controller
 
     public function actionActivate($type, $app)
     {
-        $options = ['1'=>'month_price', '3'=>'season_price', '6'=>'half_price', '12' => 'year'];
+        $options = ['1'=>'month_price', '3'=>'season_price', '6'=>'half_price', '12' => 'year_price'];
         $durations = ['1'=>'1 month', '3'=>'3 month', '6'=>'half year', '12' => '1 year'];
 
         $app = App::findOne($app);
