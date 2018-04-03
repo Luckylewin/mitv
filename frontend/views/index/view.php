@@ -112,7 +112,7 @@
 
 <div class="row ">
     <div style="margin:30px auto 10px">
-        <a href="<?= Url::to(['index/show-list','app'=>$app->id]) ?>" class="btn btn-info btn-lg">Support Channels</a>
-        <a href="<?= Url::to(['index/download','app'=>$app->id]) ?>" class="btn btn-primary btn-lg">Download App</a>
+        <a href="<?= Url::to(['index/show-list','app'=>$app->id]) ?>" class="btn btn-info btn-lg">Channels</a>
+        <a href="<?= Url::to(['index/download','app'=>$app->id]) ?>" class="btn btn-primary btn-lg">Download</a>
     </div>
 </div>

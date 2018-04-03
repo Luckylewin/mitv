@@ -2,10 +2,12 @@
 
 namespace common\models\search;
 
+use common\models\AppToChannel;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use common\models\Channel;
+use yii\helpers\ArrayHelper;
 
 /**
  * ChannelSearch represents the model behind the search form about `common\models\Channel`.
@@ -19,7 +21,7 @@ class ChannelSearch extends Channel
     {
         return [
             [['id', 'sort', 'pid', 'area_id'], 'integer'],
-            [['name', 'image'], 'safe'],
+            [['name', 'app_id'], 'safe'],
         ];
     }
 
@@ -61,11 +63,16 @@ class ChannelSearch extends Channel
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'id' => $this->id,
             'sort' => $this->sort,
             'pid' => $this->pid,
             'area_id' => $this->area_id,
         ]);
+
+        $data = AppToChannel::find()->where(['app_id' => $this->app_id])->select('channel_id')->all();
+        if (!empty($data)) {
+            $data = ArrayHelper::getColumn($data, 'channel_id');
+            $query->andFilterWhere(['in','id', $data]);
+        }
 
         $query->andFilterWhere(['like', 'name', $this->name])
             ->andFilterWhere(['like', 'image', $this->image]);

@@ -7,6 +7,7 @@ use Yii;
 /**
  * This is the model class for table "sys_app_channel".
  *
+ * @property integer $id
  * @property integer $app_id
  * @property integer $channel_id
  */
@@ -37,8 +38,15 @@ class AppToChannel extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
+            'id' => Yii::t('frontend', 'ID'),
             'app_id' => Yii::t('frontend', 'App ID'),
             'channel_id' => Yii::t('frontend', 'Channel ID'),
         ];
     }
+
+    public function getApp()
+    {
+        return $this->hasOne(App::className(), ['id' => 'app_id'])->select('id,name');
+    }
+
 }

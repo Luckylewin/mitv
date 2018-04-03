@@ -29,9 +29,9 @@ use common\models\Country;
 
 
 
-        <div class="well" style="display: none">
-            <?= $form->field($model, 'app_id')->checkboxList(ArrayHelper::map(App::getApp(),'id', 'name'))->label('支持的APP') ?>
-        </div>
+    <div class="well" style="display: <?= !$model->isNewRecord && $model->pid == 0? 'block' :'none' ?>">
+        <?= $form->field($model, 'app_id')->checkboxList(ArrayHelper::map(App::getApp(),'id', 'name'))->label('支持的APP') ?>
+    </div>
 
 
 
@@ -45,6 +45,7 @@ use common\models\Country;
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::a('Back', \yii\helpers\Url::to(['channel/index']),['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

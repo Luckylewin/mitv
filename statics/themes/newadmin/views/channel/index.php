@@ -22,9 +22,21 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            //'id',
+            [
+                    'attribute' => 'app_id',
+                    'label' => 'APP',
+                    'filter' => \yii\helpers\ArrayHelper::map(\common\models\App::getApp(), 'id', 'name'),
+                    'value'  => function($model) {
+                       $apps =  $model->apps;
+                       $str = [];
+                       foreach ($apps as $app) {
+                           $str[] = $app->app->name;
+                       }
+                       return implode(',', $str);
+                    }
+            ],
             'name',
-            'sort',
+            //'sort',
             //'pid',
             //'image',
             // 'area_id',

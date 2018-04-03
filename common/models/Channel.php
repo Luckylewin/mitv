@@ -56,6 +56,15 @@ class Channel extends \yii\db\ActiveRecord
         ];
     }
 
+    /**
+     * 多对多关联
+     * @return \yii\db\ActiveQuery
+     */
+    public function getApps()
+    {
+        return $this->hasMany(AppToChannel::className(),['channel_id' => 'id'])->joinWith('app');
+    }
+
     public static function getClass($area_id = null)
     {
         if ($area_id) {
