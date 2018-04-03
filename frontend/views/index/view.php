@@ -1,6 +1,6 @@
 <?php use yii\helpers\Url; ?>
 
-<link href="/statics/themes/default/views/css/price.css" rel="stylesheet">
+<link href="/statics/themes/default/views/css/price.css?v=20180403" rel="stylesheet">
 <style>
     .content{background: linear-gradient(to right, #f3d08e , #afeb86);padding: 47px 40px; }
 </style>
@@ -112,7 +112,7 @@
 
 <div class="row ">
     <div style="margin:30px auto 10px">
-        <a href="<?= Url::to(['index/show-list','app'=>$app->id]) ?>" class="btn btn-info btn-lg">Channel List</a>
+        <a href="<?= Url::to(['index/show-list','app'=>$app->id]) ?>" class="btn btn-info btn-lg">Support Channels</a>
         <a href="<?= Url::to(['index/download','app'=>$app->id]) ?>" class="btn btn-primary btn-lg">Download App</a>
     </div>
 </div>

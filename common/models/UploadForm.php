@@ -8,11 +8,7 @@ use yii\base\Model;
  */
 class UploadForm extends Model
 {
-    public $username;
-    public $password;
-    public $rememberMe = true;
-
-    public $file;
+   public $file;
 
     /**
      * @inheritdoc
@@ -20,7 +16,7 @@ class UploadForm extends Model
     public function rules()
     {
         return [
-            [['file'],'file','skipOnEmpty' => false,'checkExtensionByMimeType' => false,'extensions' => 'html,xls,xlsx']
+            [['upload'],'file','skipOnEmpty' => false,'checkExtensionByMimeType' => false,'extensions' => 'image/png,jpg,png,jpeg']
         ];
     }
 

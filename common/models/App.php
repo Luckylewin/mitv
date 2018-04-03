@@ -60,4 +60,9 @@ class App extends \yii\db\ActiveRecord
             'imgae' => Yii::t('app', '图片'),
         ];
     }
+
+    public static function getApp()
+    {
+        return self::find()->all();
+    }
 }

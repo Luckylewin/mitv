@@ -10,8 +10,11 @@ namespace frontend\controllers;
 
 use common\models\ActivateLog;
 use common\models\App;
+use common\models\AppToChannel;
+use common\models\Channel;
 use common\models\Order;
 use common\oss\Aliyunoss;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
 use yii\web\Controller;
 use yii\web\ForbiddenHttpException;
@@ -20,12 +23,22 @@ use yii\web\NotFoundHttpException;
 
 class IndexController extends Controller
 {
+    public $app;
+
     public function beforeAction($action)
     {
         if (parent::beforeAction($action)) {
 
-            if (in_array($action->id, ['view','first-activate']) && Yii::$app->user->isGuest) {
+            if (in_array($action->id, ['first-activate','activate']) && Yii::$app->user->isGuest) {
                 return $this->redirect(Url::to(['site/signup','des' => base64_encode(Yii::$app->request->referrer)]));
+            }
+            if (in_array($action->id, ['view','show-list','first-activate', 'activate', 'download'])) {
+               $id = Yii::$app->request->get('id') ? Yii::$app->request->get('id') : Yii::$app->request->get('app');
+               $app = App::findOne($id);
+               if (is_null($app)) {
+                    throw new ForbiddenHttpException("404 Page Not Found");
+               }
+               $this->app = $app;
             }
         }
         return true;
@@ -43,34 +56,14 @@ class IndexController extends Controller
 
     public function actionView($id)
     {
-        $app = App::findOne($id);
-        if (is_null($app)) {
-            throw new ForbiddenHttpException("404 Page Not Found");
-        }
-
-        //查找用户是否已经激活免费过该APP
-        $log = ActivateLog::findOne([
-            'uid' => Yii::$app->user->getId(),
-            'is_charge' => '0',
-            'appname' => $app->name
-        ]);
-
-        if (is_null($log)) {
-            //说明是第一次激活使用
-            return $this->redirect(Url::to(['index/first-activate','type'=>'0','app'=>$app->id]));
-        }
-
         return $this->render('view', [
-            'app' => $app,
+            'app' => $this->app,
         ]);
     }
 
     public function actionFirstActivate($type, $app)
     {
-        $app = App::findOne($app);
-        if (is_null($app)) {
-            throw new ForbiddenHttpException("404 Page Not Found");
-        }
+        $app = $this->app;
 
         //查找用户是否已经激活免费过该APP
         $log = ActivateLog::findOne([
@@ -106,10 +99,17 @@ class IndexController extends Controller
         $options = ['1'=>'month_price', '3'=>'season_price', '6'=>'half_price', '12' => 'year_price'];
         $durations = ['1'=>'1 month', '3'=>'3 month', '6'=>'half year', '12' => '1 year'];
 
-        $app = App::findOne($app);
+        $app = $this->app;
+        //查找用户是否已经激活免费过该APP
+        $log = ActivateLog::findOne([
+            'uid' => Yii::$app->user->getId(),
+            'is_charge' => '0',
+            'appname' => $app->name
+        ]);
 
-        if (is_null($app) || !isset($options[$type])) {
-            throw new ForbiddenHttpException("404 Page Not Found");
+        if (is_null($log)) {
+            //说明是第一次激活使用
+            return $this->redirect(Url::to(['index/first-activate','type'=>'0','app'=>$app->id]));
         }
 
         $model = new Order();
@@ -156,15 +156,26 @@ class IndexController extends Controller
 
     public function actionShowList($app)
     {
-        return $this->render('list');
+        $channel_id = AppToChannel::find()->select('channel_id')->where(['app_id' => $this->app->id])->asArray()->all();
+
+        if (!empty($channel_id)) {
+            $channel_id = ArrayHelper::getColumn($channel_id,'channel_id');
+
+            $data = Channel::getIntroduceList($channel_id);
+        } else {
+            $data = [];
+        }
+
+
+        return $this->render('list', [
+            'data' => $data,
+            ''
+        ]);
     }
 
     public function actionDownload($app)
     {
-        $app = App::findOne($app);
-        if (is_null($app) || $app->url == '') {
-            throw  new NotFoundHttpException('sorry , we miss the download url');
-        }
+        $app = $this->app;
         return $this->redirect(Aliyunoss::getDownloadUrl($app->url));
     }
 
