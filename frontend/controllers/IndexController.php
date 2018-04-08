@@ -30,8 +30,9 @@ class IndexController extends Controller
         if (parent::beforeAction($action)) {
 
             if (in_array($action->id, ['first-activate','activate']) && Yii::$app->user->isGuest) {
-                return $this->redirect(Url::to(['site/signup','des' => base64_encode(Yii::$app->request->referrer)]));
+                $this->redirect(Url::to(['site/signup','des' => base64_encode(Yii::$app->request->referrer)]));
             }
+
             if (in_array($action->id, ['view','show-list','first-activate', 'activate', 'download'])) {
                $id = Yii::$app->request->get('id') ? Yii::$app->request->get('id') : Yii::$app->request->get('app');
                $app = App::findOne($id);
