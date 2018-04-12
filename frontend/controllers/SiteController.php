@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\User;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -155,6 +156,13 @@ class SiteController extends Controller
     {
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post())) {
+            //查找一下数据库
+            if ($user = $model->directlyLogin()) {
+                if (Yii::$app->getUser()->login($user)) {
+                    Yii::$app->session->setFlash('success', 'login success');
+                    return $this->goHome();
+                }
+            }
             if ($user = $model->signup()) {
                 if (Yii::$app->getUser()->login($user)) {
                     Yii::$app->session->setFlash('success', 'register success');

@@ -33,7 +33,7 @@ class IndexController extends Controller
                 $this->redirect(Url::to(['site/signup','des' => base64_encode(Yii::$app->request->referrer)]));
             }
 
-            if (in_array($action->id, ['view','show-list','first-activate', 'activate', 'download'])) {
+            if (in_array($action->id, ['purchase','view','show-list','first-activate', 'activate', 'download'])) {
                $id = Yii::$app->request->get('id') ? Yii::$app->request->get('id') : Yii::$app->request->get('app');
                $app = App::findOne($id);
                if (is_null($app)) {
@@ -62,6 +62,22 @@ class IndexController extends Controller
         ]);
     }
 
+    public function actionPurchase($app)
+    {
+        $app = $this->app;
+        //查找用户是否已经激活免费过该APP
+        $log = ActivateLog::findOne([
+            'uid' => Yii::$app->user->getId(),
+            'is_charge' => '0',
+            'appname' => $app->name
+        ]);
+
+        return $this->render('purchase', [
+            'app' => $app,
+            'free_chance' => is_null($log)? true : false
+        ]);
+    }
+
     public function actionFirstActivate($type, $app)
     {
         $app = $this->app;
@@ -86,7 +102,7 @@ class IndexController extends Controller
                 Yii::$app->session->setFlash('error', 'sorry, an unexpected error occur');
                 return $this->goBack(Yii::$app->request->referrer);
             }
-            Yii::$app->session->setFlash('success', 'Congratulation, You have activate Your account successfully');
+            Yii::$app->session->setFlash('success', 'Your account will be opened in 24 hours, Please pay attention to the mailbox');
         }
 
         return $this->render('first-activate', [
@@ -108,10 +124,10 @@ class IndexController extends Controller
             'appname' => $app->name
         ]);
 
-        if (is_null($log)) {
+       /* if (is_null($log)) {
             //说明是第一次激活使用
             return $this->redirect(Url::to(['index/first-activate','type'=>'0','app'=>$app->id]));
-        }
+        }*/
 
         $model = new Order();
         if ($model->load(\Yii::$app->request->post())) {

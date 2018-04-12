@@ -135,6 +135,22 @@
     box-shadow: 0 0 10px #40c952;
 }
 
+.free-item{margin-bottom: 30px;}
+.pricingTable.yellow .price-value,
+.pricingTable.yellow .heading{
+    color: #1f78d8;
+}
+
+.pricingTable.yellow:hover .pricingTable-header,
+.pricingTable.yellow .pricingTable-signup a{
+    background: #1f78d8;
+}
+
+.pricingTable.yellow .pricingTable-signup a:hover{
+    box-shadow: 0 0 10px #1f78d8;
+}
+
+.pricingTable.yellow:hover .price-value,
 .pricingTable.blue:hover .price-value,
 .pricingTable.red:hover .price-value,
 .pricingTable.green:hover .price-value{

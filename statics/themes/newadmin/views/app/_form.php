@@ -24,6 +24,19 @@ use common\widgets\OssUploader;
         ]
     ]); ?>
 
+    <?= $form->field($model, 'short_introduce')->widget(\yii\redactor\widgets\Redactor::className(),
+        [
+            'clientOptions' => [
+                'row' => 110,
+                'imageManagerJson' => ['/redactor/upload/image-json'],
+                'imageUpload' => ['/redactor/upload/image'],
+                'fileUpload' => ['/redactor/upload/file'],
+                'lang' => 'zh_cn',
+                'plugins' => ['clips', 'fontcolor'],
+
+            ]
+        ]) ?>
+
     <?= $form->field($model, 'introduce')->widget(\yii\redactor\widgets\Redactor::className(),
         [
             'clientOptions' => [

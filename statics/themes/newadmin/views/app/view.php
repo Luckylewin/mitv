@@ -29,6 +29,10 @@ $this->params['breadcrumbs'][] = $this->title;
                      }
              ],
             [
+                'attribute' => 'short_introduce',
+                'format' => 'raw'
+            ],
+            [
                     'attribute' => 'introduce',
                     'format' => 'raw'
             ],

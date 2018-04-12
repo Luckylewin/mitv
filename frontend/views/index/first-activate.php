@@ -8,16 +8,7 @@ use yii\widgets\ActiveForm;
 /* @var $form ActiveForm */
 ?>
 
-<div class="row jumbotron">
 
-     <div>
-         <?= $app->introduce; ?>
-     </div>
-</div>
-
-<div class="row">
-    <a target="_self" href="<?= \yii\helpers\Url::to(['index/download', 'app'=>$app->id]) ?>" class="btn btn-primary btn-lg btn-block text-white">DOWNLOAD APK</a>
-</div>
 
 <div class="py-5 text-center">
     <h2>Activate Account</h2>
@@ -31,8 +22,8 @@ use yii\widgets\ActiveForm;
             <td><?= $app->name; ?></td>
         </tr>
         <tr>
-            <th>Free Use</th>
-            <td><?= $app->free_day ?> day</td>
+            <th>Free For Use</th>
+            <td><?= $app->free_day ?> days</td>
         </tr>
         <tr>
             <th>Expire Date</th>
