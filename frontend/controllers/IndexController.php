@@ -138,7 +138,7 @@ class IndexController extends Controller
 
         $price = $options[$type];
         $duration = $durations[$type];
-        $mac = Yii::$app->user->identity->username;
+        $mac = Yii::$app->user->isGuest ? 'visitor' : Yii::$app->user->identity->username;
 
         return $this->render('activate', [
             'model' => $model,
