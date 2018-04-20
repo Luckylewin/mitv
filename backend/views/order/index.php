@@ -24,17 +24,27 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            //'id',
             'mac',
-            'name',
+            //'name',
             //'active_time',
             //'expire_time',
-            // 'type',
-            // 'total',
-            // 'app_name',
-            // 'invoice_number',
-            // 'is_pay',
-            // 'created_at',
+            [
+	      'attribute' => 'type',
+		'value' => function($model) {
+			return $model->getTypeStatus();
+		}
+	    ],	
+             'total',
+             'app_name',
+             'invoice_number',
+	    [
+	      'attribute' => 'is_pay',
+		'value' => function($model) {
+			return $model->getPayStatus();
+		}
+	    ],	
+             'created_at:date',
             // 'updated_at',
 
             ['class' => 'yii\grid\ActionColumn'],

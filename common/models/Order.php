@@ -80,8 +80,8 @@ class Order extends \yii\db\ActiveRecord
 
             'active_time' => Yii::t('frontend', '激活时间'),
             'expire_time' => Yii::t('frontend', '过期时间'),
-            'type' => Yii::t('frontend', 'Type'),
-            'total' => Yii::t('frontend', 'Total'),
+            'type' => Yii::t('frontend', '类型'),
+            'total' => Yii::t('frontend', '金额'),
             'app_name' => Yii::t('frontend', 'APK名称'),
             'invoice_number' => Yii::t('frontend', '商户订单号'),
             'is_pay' => Yii::t('frontend', '是否已经支付'),
@@ -115,6 +115,18 @@ class Order extends \yii\db\ActiveRecord
     {
         $yCode = array('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J');
         return $orderSn = $yCode[intval(date('Y')) - 2018] . strtoupper(dechex(date('m'))) . date('d') . substr(time(), -5) . substr(microtime(), 2, 5) . sprintf('%02d', rand(0, 99));
+    }
+    
+    public function getPayStatus()
+    {
+       $status = ['未支付', '已支付'];
+       return $status[$this->is_pay];	 
+    }   
+   
+    public function getTypeStatus()
+    { 
+       $type = ['试用', '一个月','三个月','六个月','一年'];
+       return $type[$this->type];	
     }
 
 }
