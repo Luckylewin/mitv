@@ -5,12 +5,7 @@
     .content{background: linear-gradient(to right, #f3d08e , #afeb86);padding: 47px 40px; }
 </style>
 
-<div class="row">
 
-    <div>
-        <?= $app->introduce; ?>
-    </div>
-</div>
 
 <div class="row">
 

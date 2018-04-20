@@ -9,6 +9,7 @@
 namespace frontend\controllers;
 
 
+use common\models\ActivateLog;
 use common\models\Order;
 use frontend\components\paypal;
 use PayPal\Api\Amount;
@@ -132,6 +133,18 @@ class PayController extends Controller
             if (!empty($invoice_number)) {
                 $order = Order::findOne(['invoice_number' => $invoice_number]);
                 $order->is_pay = '1';
+
+                //生成一条激活记录
+                $activateLog = new ActivateLog();
+
+                $activateLog->order_id = $order->id;
+                $activateLog->uid = $order->user->id;
+                $activateLog->appname = $order->app_name;
+                $activateLog->expire_time = strtotime('+ '. $order->type . 'month');
+                $activateLog->duration = floor((strtotime('+ '. $order->type . 'month') - time()) / 86400);
+                $activateLog->is_charge = Order::CHARGE;
+                $activateLog->save(false);
+
                 $order->save(false);
 
                 return Yii::$app->response->redirect(Url::to(['index/success', 'order' =>  $invoice_number]));

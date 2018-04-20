@@ -52,7 +52,7 @@ $this->registerJsFile('/statics/components/layer/layer-v3.1.1.js',['depends'=>'y
 <script>
     $('.pay-now').click(function(){
         $(this).prop('disabled', true);
-        layer.msg("Calling PayPal Now",{time: 3000,offset:['250px', '']});
+        layer.msg("Calling PayPal now, please be patient",{time: 23000,offset:['250px', '']});
         var index = layer.load(1, {
             shade: [0.5,'#000'] //0.1透明度的白色背景
         });

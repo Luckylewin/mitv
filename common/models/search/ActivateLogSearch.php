@@ -5,12 +5,12 @@ namespace common\models\search;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\Order;
+use common\models\ActivateLog;
 
 /**
- * OrderSearch represents the model behind the search form about `common\models\Order`.
+ * ActivateLogSearch represents the model behind the search form about `common\models\ActivateLog`.
  */
-class OrderSearch extends Order
+class ActivateLogSearch extends ActivateLog
 {
     /**
      * @inheritdoc
@@ -18,9 +18,8 @@ class OrderSearch extends Order
     public function rules()
     {
         return [
-            [['id'], 'integer'],
-            [['mac', 'name', 'active_time', 'expire_time', 'type', 'app_name', 'invoice_number', 'is_pay', 'created_at', 'updated_at'], 'safe'],
-
+            [['id', 'uid', 'created_time', 'expire_time', 'duration', 'oid'], 'integer'],
+            [['appname', 'is_charge'], 'safe'],
         ];
     }
 
@@ -42,7 +41,7 @@ class OrderSearch extends Order
      */
     public function search($params)
     {
-        $query = Order::find();
+        $query = ActivateLog::find();
 
         // add conditions that should always apply here
 
@@ -61,18 +60,15 @@ class OrderSearch extends Order
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'active_time' => $this->active_time,
+            'uid' => $this->uid,
+            'created_time' => $this->created_time,
             'expire_time' => $this->expire_time,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
+            'duration' => $this->duration,
+            'oid' => $this->oid,
         ]);
 
-        $query->andFilterWhere(['like', 'mac', $this->mac])
-            ->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'type', $this->type])
-            ->andFilterWhere(['like', 'app_name', $this->app_name])
-            ->andFilterWhere(['like', 'invoice_number', $this->invoice_number])
-            ->andFilterWhere(['like', 'is_pay', $this->is_pay]);
+        $query->andFilterWhere(['like', 'appname', $this->appname])
+            ->andFilterWhere(['like', 'is_charge', $this->is_charge]);
 
         return $dataProvider;
     }

@@ -25,6 +25,18 @@ use yii\db\ActiveRecord;
 class Order extends \yii\db\ActiveRecord
 {
 
+    const CHARGE = 1;
+    const FREE = 0;
+
+    public static $payStatus = ['未支付','已支付'];
+    public static $payPeriod = [
+                            0=>'试用',
+                            1=>'一个月',
+                            3=>'三个月',
+                            6=>'六个月',
+                            12=>'一年'
+    ];
+
     public $app;
 
     public function behaviors()
@@ -99,7 +111,7 @@ class Order extends \yii\db\ActiveRecord
                     $this->total = $app->$field;
                     $this->app_name = $app->name;
                     $this->invoice_number = $this->generateOrder();
-                }else{
+                } else{
                     return false;
                 }
             }
@@ -117,16 +129,29 @@ class Order extends \yii\db\ActiveRecord
         return $orderSn = $yCode[intval(date('Y')) - 2018] . strtoupper(dechex(date('m'))) . date('d') . substr(time(), -5) . substr(microtime(), 2, 5) . sprintf('%02d', rand(0, 99));
     }
     
-    public function getPayStatus()
+    public static function getPayStatus()
     {
-       $status = ['未支付', '已支付'];
-       return $status[$this->is_pay];	 
-    }   
-   
+       return self::$payStatus;
+    }
+
+    public function getPayStatusLabel()
+    {
+        $status = self::$payStatus[$this->is_pay];
+        $color = $this->is_pay ? 'success' : 'default';
+        return "<span class='label label-$color'>" . $status. "</span>";
+    }
+
+
+
     public function getTypeStatus()
     { 
-       $type = ['试用', '一个月','三个月','六个月','一年'];
+       $type = self::$payPeriod;
        return $type[$this->type];	
+    }
+
+    public function getUser()
+    {
+        return $this->hasOne(User::className(), ['username' => 'mac']);
     }
 
 }
