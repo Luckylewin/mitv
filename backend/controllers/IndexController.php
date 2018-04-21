@@ -2,6 +2,7 @@
 namespace backend\controllers;
 
 use backend\models\LoginForm;
+use common\models\ActivateLog;
 use Yii;
 
 class IndexController extends BaseController
@@ -21,7 +22,12 @@ class IndexController extends BaseController
 
     public function actionIndex()
     {
-        return $this->render('index');
+        //find the undeal order
+        $be_deal_num = ActivateLog::find()->where(['is_deal' => 0])->count('*');
+
+        return $this->render('index', [
+            'be_deal_num' => $be_deal_num
+        ]);
     }
 
     /**
