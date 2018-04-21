@@ -81,11 +81,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
             ],
 
-            //'expire_time:datetime',
-
-            // 'is_charge',
-            // 'oid',
-
             [
                     'class' => 'common\grid\MyActionColumn',
                     'template' => '{activate}',

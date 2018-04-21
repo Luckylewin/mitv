@@ -14,8 +14,6 @@ use yii\filters\VerbFilter;
  */
 class ActivateLogController extends BaseController
 {
-
-
     /**
      * Lists all ActivateLog models.
      * @return mixed
@@ -23,7 +21,7 @@ class ActivateLogController extends BaseController
     public function actionIndex()
     {
         $searchModel = new ActivateLogSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams)->setSort(false);
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
