@@ -165,7 +165,6 @@ class SiteController extends Controller
             } elseif ($user = $model->signup()) {
                 if (Yii::$app->getUser()->login($user)) {
                     Yii::$app->session->setFlash('success', 'Congratulations! Register successfully');
-                    return $this->goHome();
                 }
             }
 

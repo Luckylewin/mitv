@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-<?php Pjax::begin(); ?>    <?= GridView::widget([
+<?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
@@ -46,7 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $model->appname;
                 }
             ],
-            
+
             [
                     'attribute' => 'uid',
                     'filter' => false,
@@ -65,7 +65,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => function($model) {
                     if ($model->order_id) {
                         $order = $model->order;
-                        return Html::label($order->invoice_number);
+                        return isset($order->invoice_number)? Html::a($order->invoice_number, ['order/view', 'id' => $model->order_id]) : '已删除';
                     }
                     return "-";
                 }
@@ -101,4 +101,4 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ],
     ]); ?>
-<?php Pjax::end(); ?></div>
+</div>

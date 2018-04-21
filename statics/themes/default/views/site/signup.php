@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="col-lg-5">
             <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
 
-                <?= $form->field($model, 'username')->textInput(['autofocus' => true])->label( Html::a('<font style="color: black">MAC</font> <font style="font-size: 14px;">(FAQ: how can I find the mac?)</font>',\yii\helpers\Url::to(['faq/mac']),[
+                <?= $form->field($model, 'username')->textInput(['autofocus' => true])->label( Html::a('<font style="color: black">MAC</font> <font style="font-size: 14px;">(FAQ: how can I find the mac?)</font>',\yii\helpers\Url::to(['page/view','id'=>'1']),[
                         'class' => 'btn btn-link'
                     ])) ?>
 

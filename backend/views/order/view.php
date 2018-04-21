@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model common\models\Order */
 
-$this->title = $model->name;
+$this->title = $model->mac;
 $this->params['breadcrumbs'][] = ['label' => 'Orders', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -14,25 +14,16 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
+
 
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
             'id',
             'mac',
-            'name',
-            'active_time',
-            'expire_time',
+            //'name',
+            /*'active_time',
+            'expire_time',*/
             'type',
             'total',
             'app_name',
@@ -42,5 +33,15 @@ $this->params['breadcrumbs'][] = $this->title;
             'updated_at',
         ],
     ]) ?>
+
+    <p>
+        <?= Html::a('更新', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+
+        <?php if (strpos(Yii::$app->request->referrer, 'log') !== false):?>
+            <?= Html::a('返回', Yii::$app->request->referrer, ['class' => 'btn btn-default']) ?>
+        <?php else: ?>
+            <?= Html::a('返回', ['order/index'], ['class' => 'btn btn-default']) ?>
+        <?php endif; ?>
+    </p>
 
 </div>

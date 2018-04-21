@@ -6,33 +6,28 @@
 use yii\helpers\Url;
 use yii\web\AssetBundle as AppAsset;
 AppAsset::register($this);
-
 ?>
 <?php $this->beginPage() ?>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="/favicon.ico">
-    <title>TV App Store</title>
+    <title><?= (isset($this->title) ? \yii\helpers\Html::encode($this->title) .'-' : '') ."TV APP" ?></title>
     <!-- Bootstrap core CSS -->
     <link href="/statics/components/bootstrap-4.0/css/bootstrap.min.css" rel="stylesheet">
-    <?php $this->registerJsFile('/statics/components/bootstrap-4.0/js/bootstrap.bundle.min.js',['depends' => 'yii\web\JqueryAsset']) ?>
     <link href="/statics/themes/default/views/css/site.css" rel="stylesheet">
-
+    <?php $this->registerJsFile('/statics/components/bootstrap-4.0/js/bootstrap.bundle.min.js',['depends' => 'yii\web\JqueryAsset']) ?>
 </head>
 <?php $this->head() ?>
 
 <?php if(Yii::$app->user->isGuest): ?>
 
-
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-5 mb-4 bg-white border-bottom box-shadow" >
    <a href="<?= Url::to(['index/view','id'=>1])?>" class="btn btn-primary btn-lg btn-block">Pay For App</a>
 </div>
-
 
 <?php else: ?>
 
@@ -54,7 +49,7 @@ AppAsset::register($this);
                         <?= Yii::$app->user->identity->username; ?>
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">My Account</a>
+                        <a class="dropdown-item" href="<?= Url::to(['member/index']) ?>" >My Account</a>
                         <a class="dropdown-item" href="<?php echo Url::to(['site/logout']) ?>">logout</a>
                     </div>
                 </li>

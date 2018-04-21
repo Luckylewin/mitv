@@ -27,7 +27,7 @@ use common\widgets\OssUploader;
     <?= $form->field($model, 'short_introduce')->widget(\yii\redactor\widgets\Redactor::className(),
         [
             'clientOptions' => [
-                'row' => 110,
+                'minHeight' =>'300px',
                 'imageManagerJson' => ['/redactor/upload/image-json'],
                 'imageUpload' => ['/redactor/upload/image'],
                 'fileUpload' => ['/redactor/upload/file'],

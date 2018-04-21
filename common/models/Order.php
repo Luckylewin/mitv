@@ -19,8 +19,8 @@ use yii\db\ActiveRecord;
  * @property string $app_name
  * @property string $invoice_number
  * @property string $is_pay
- * @property string $created_time
- * @property string $updated_time
+ * @property string $created_at
+ * @property string $updated_at
  */
 class Order extends \yii\db\ActiveRecord
 {
@@ -97,6 +97,8 @@ class Order extends \yii\db\ActiveRecord
             'app_name' => Yii::t('frontend', 'APK名称'),
             'invoice_number' => Yii::t('frontend', '商户订单号'),
             'is_pay' => Yii::t('frontend', '是否已经支付'),
+            'created_at' => '创建时间',
+            'updated_at' => '更新时间'
         ];
     }
 

@@ -70,7 +70,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
             [
                     'class' => 'common\grid\MyActionColumn',
-                    'options' => ['style'=>'width:200px;']
+                    'options' => ['style'=>'width:200px;'],
+                    'template' => '{view}'
             ],
         ],
     ]); ?>

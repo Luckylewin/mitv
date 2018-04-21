@@ -18,7 +18,7 @@ class ActivateLogSearch extends ActivateLog
     public function rules()
     {
         return [
-            [['id', 'uid', 'created_time', 'expire_time', 'duration', 'oid'], 'integer'],
+            [['id', 'uid','expire_time', 'duration', 'oid'], 'integer'],
             [['appname', 'is_charge'], 'safe'],
         ];
     }
@@ -39,14 +39,23 @@ class ActivateLogSearch extends ActivateLog
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search($params,$condition = null)
     {
         $query = ActivateLog::find();
 
+        if ($condition) {
+            $query->where($condition);
+        }
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'sort' => [
+                'defaultOrder' => [
+                    'created_time' => 'desc',
+                    'is_deal' => 'desc'
+                ]
+            ]
         ]);
 
         $this->load($params);

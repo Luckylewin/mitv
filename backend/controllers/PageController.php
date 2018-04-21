@@ -3,36 +3,49 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\ActivateLog;
-use common\models\search\ActivateLogSearch;
+use common\models\Page;
+use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * ActivateLogController implements the CRUD actions for ActivateLog model.
+ * PageController implements the CRUD actions for Page model.
  */
-class ActivateLogController extends BaseController
+class PageController extends Controller
 {
-
+    /**
+     * @inheritdoc
+     */
+    public function behaviors()
+    {
+        return [
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'delete' => ['POST'],
+                ],
+            ],
+        ];
+    }
 
     /**
-     * Lists all ActivateLog models.
+     * Lists all Page models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ActivateLogSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams)->setSort(false);
+        $dataProvider = new ActiveDataProvider([
+            'query' => Page::find(),
+        ]);
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
     }
 
     /**
-     * Displays a single ActivateLog model.
+     * Displays a single Page model.
      * @param integer $id
      * @return mixed
      */
@@ -44,13 +57,13 @@ class ActivateLogController extends BaseController
     }
 
     /**
-     * Creates a new ActivateLog model.
+     * Creates a new Page model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new ActivateLog();
+        $model = new Page();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -62,7 +75,7 @@ class ActivateLogController extends BaseController
     }
 
     /**
-     * Updates an existing ActivateLog model.
+     * Updates an existing Page model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -81,7 +94,7 @@ class ActivateLogController extends BaseController
     }
 
     /**
-     * Deletes an existing ActivateLog model.
+     * Deletes an existing Page model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -94,30 +107,18 @@ class ActivateLogController extends BaseController
     }
 
     /**
-     * Finds the ActivateLog model based on its primary key value.
+     * Finds the Page model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return ActivateLog the loaded model
+     * @return Page the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = ActivateLog::findOne($id)) !== null) {
+        if (($model = Page::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
-
-    public function actionActivate($id)
-    {
-        $log = $this->findModel($id);
-        $log->is_deal = 1;
-        $log->expire_time += (time() - $log->created_time);
-        $log->save(false);
-
-        Yii::$app->session->setFlash('success', '开通成功');
-        return $this->redirect(Yii::$app->request->getReferrer());
-    }
-
 }

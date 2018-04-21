@@ -19,7 +19,7 @@ class OrderSearch extends Order
     {
         return [
             [['id'], 'integer'],
-            [['mac', 'name', 'active_time', 'expire_time', 'type', 'app_name', 'invoice_number', 'is_pay', 'created_at', 'updated_at'], 'safe'],
+            [['mac', 'name', 'active_time', 'expire_time', 'type', 'app_name', 'invoice_number', 'is_pay',  'updated_at'], 'safe'],
 
         ];
     }
@@ -48,6 +48,11 @@ class OrderSearch extends Order
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'sort' => [
+                'defaultOrder' => [
+                    'created_at' => 'desc'
+                ]
+            ]
         ]);
 
         $this->load($params);
