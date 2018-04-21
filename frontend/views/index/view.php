@@ -28,7 +28,6 @@ $this->registerCssFile('/statics/themes/newadmin/css/font-awesome.min.css');
 </div>
 
 <div class="container-fluid pc-btn" style="display: none">
-    <h1>Hello World!</h1>
     <div class="row">
         <div style="margin:30px auto 10px">
             <a href="<?= Url::to(['index/show-list','app'=>$app->id]) ?>" class="btn btn-info btn-lg"><i class="fa fa-list"></i> Channels</a>
