@@ -18,6 +18,7 @@ use Yii;
  * @property string $year_price
  * @property string $free_day
  * @property string $imgae
+ * @property string $faq
  */
 class App extends \yii\db\ActiveRecord
 {
@@ -36,7 +37,7 @@ class App extends \yii\db\ActiveRecord
     {
         return [
             [['name', 'short_introduce',  'introduce', 'month_price', 'season_price', 'half_price', 'year_price', 'imgae'], 'required'],
-            [['introduce'], 'string'],
+            [['introduce','faq'], 'string'],
             [['month_price', 'season_price', 'half_price', 'year_price'], 'number'],
             [['name', 'url', 'imgae'], 'string', 'max' => 255],
             [['free_day'], 'string', 'max' => 50],
@@ -60,6 +61,7 @@ class App extends \yii\db\ActiveRecord
             'year_price' => Yii::t('app', '年价'),
             'free_day' => Yii::t('app', '免费使用天数'),
             'imgae' => Yii::t('app', '图片'),
+            'faq' => Yii::t('app', 'FAQ'),
         ];
     }
 

@@ -14,7 +14,7 @@ Yii::$app->db->open();
             <tbody>
             <tr>
                 <td>QQ交流群</td>
-                <td>608230907</td>
+                <td></td>
             </tr>
             <tr>
                 <td>下载地址</td>
@@ -62,11 +62,11 @@ Yii::$app->db->open();
             <tbody>
                 <tr>
                     <td>版权所有</td>
-                    <td>边走边乔</td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>负责人</td>
-                    <td>边走边乔</td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>GitHub</td>
@@ -74,7 +74,7 @@ Yii::$app->db->open();
                 </tr>
                 <tr>
                     <td>联系QQ</td>
-                    <td>771405950 (边走边乔)</td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>捐赠</td>

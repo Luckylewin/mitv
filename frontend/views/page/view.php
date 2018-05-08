@@ -1,9 +1,10 @@
 <?php
 use yii\helpers\Url;
 /* @var $this yii\web\View */
-$this->title = $page->tittle
 ?>
 
-<p>
-   <?= $page->content ?>
-</p>
+<ul>
+    <?php foreach ($app as $_app): ?>
+    <li><a href="<?= Url::to(['index/faq', 'id' => $_app['id']]) ?>"><?= $_app['name'] ?></a></li>
+    <?php endforeach; ?>
+</ul>

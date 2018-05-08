@@ -51,8 +51,6 @@ return [
             'errorAction' => 'site/error',
         ],
 
-
-
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,

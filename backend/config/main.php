@@ -87,13 +87,13 @@ return [
         ],
 
         //
-        /*'urlManager' => [
-            'enablePrettyUrl' => true,  //开启url规则
-            'showScriptName' => false,  //是否显示url中的index.php
+        'urlManager' => [
+            'enablePrettyUrl' => false,  //开启url规则
+            'showScriptName' => true,  //是否显示url中的index.php
             'suffix' => '.html',    //后缀
             'rules' => [
             ],
-        ],*/
+        ],
     ],
     'params' => $params,
     'timeZone'=>'Asia/Shanghai',

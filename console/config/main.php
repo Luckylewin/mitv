@@ -9,9 +9,10 @@ $params = array_merge(
 return [
     'id' => 'app-console',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'bootstrap' => ['log','queue'],
     'controllerNamespace' => 'console\controllers',
     'components' => [
+
         'log' => [
             'targets' => [
                 [
@@ -20,6 +21,22 @@ return [
                 ],
             ],
         ],
+
+        'queue' => [
+            'class' => \yii\queue\file\Queue::className(),
+            /*'as log' => \yii\queue\LogBehavior::className(),*/
+            'path' => '@webroot/storage/runtime/queue',
+        ],
+        //
+        'urlManager' => [
+            'scriptUrl' => 'http://47.90.40.108:8088/index.php',
+            'enablePrettyUrl' => false,  //开启url规则
+            'showScriptName' => true,  //是否显示url中的index.php
+            'suffix' => '.html',    //后缀
+            'rules' => [
+            ],
+        ],
+
     ],
     'params' => $params,
 ];

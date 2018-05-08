@@ -28,7 +28,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($model, 'email')->label('&nbsp;&nbsp;Your Email') ?>
 
                 <div class="form-group">
-                    <?= Html::submitButton('activate', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
+                    <?= Html::submitButton('activate', [
+                            'class' => 'btn btn-primary',
+                            'name' => 'signup-button',
+
+                    ]) ?>
 
                     <?php Html::a('I have account, go to login',['site/login'], ['class' => 'btn btn-dark', 'name' => 'signup-button']) ?>
                 </div>
@@ -37,3 +41,23 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     </div>
 </div>
+
+<?php \common\widgets\Jsblock::begin() ?>
+<script>
+        $('#signupform-username').keyup(function (){
+           var val = $(this).val();
+           var url = '<?= \yii\helpers\Url::to(['site/judge'])?>' + '&user=' + val;
+           $.getJSON(url,{},function(d) {
+               if (d.code == '0') {
+                   $('.field-signupform-email').slideUp();
+                   $('#signupform-email').val(d.data.email);
+                  // $('#submit').text('login directly');
+               } else {
+                   $('.field-signupform-email').slideDown();
+                   $('#signupform-email').val('');
+                   //$('#submit').text('activate');
+               }
+           }) ;
+        });
+</script>
+<?php \common\widgets\Jsblock::end() ?>

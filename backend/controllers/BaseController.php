@@ -20,13 +20,7 @@ class BaseController extends Controller
                 'class' => AccessControl::className(),
                 'except' => ['error','login'], //except是除了以外
                 'rules' => [
-                    //行为过滤器
-                   /* [
-                        //表示无条件通过
-                        'actions' => ['login','error'],
-                        'allow' => true,
-                        'roles' => ['?','@'],
-                    ],*/
+
                     [
                         //表示只允许认证过的用户执行 其roles用@表示 游客用?表示
                         'actions' => ['logout','frame','query','create-by-ajax','my-product','percent'],

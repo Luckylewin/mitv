@@ -27,7 +27,6 @@ use common\widgets\OssUploader;
     <?= $form->field($model, 'short_introduce')->widget(\yii\redactor\widgets\Redactor::className(),
         [
             'clientOptions' => [
-                'minHeight' =>'300px',
                 'imageManagerJson' => ['/redactor/upload/image-json'],
                 'imageUpload' => ['/redactor/upload/image'],
                 'fileUpload' => ['/redactor/upload/file'],
@@ -36,20 +35,6 @@ use common\widgets\OssUploader;
 
             ]
         ]) ?>
-
-    <?= $form->field($model, 'introduce')->widget(\yii\redactor\widgets\Redactor::className(),
-        [
-            'clientOptions' => [
-                'row' => 110,
-                'imageManagerJson' => ['/redactor/upload/image-json'],
-                'imageUpload' => ['/redactor/upload/image'],
-                'fileUpload' => ['/redactor/upload/file'],
-                'lang' => 'zh_cn',
-                'plugins' => ['clips', 'fontcolor','imagemanager'],
-
-            ]
-        ]) ?>
-
 
     <?= $form->field($model, 'month_price')->textInput(['maxlength' => true]) ?>
 
@@ -61,8 +46,34 @@ use common\widgets\OssUploader;
 
     <?= $form->field($model, 'free_day')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'introduce')->widget(\yii\redactor\widgets\Redactor::className(),
+        [
+            'clientOptions' => [
+                'minHeight' =>'300px',
+                'imageManagerJson' => ['/redactor/upload/image-json'],
+                'imageUpload' => ['/redactor/upload/image'],
+                'fileUpload' => ['/redactor/upload/file'],
+                'lang' => 'zh_cn',
+                'plugins' => ['clips', 'fontcolor','imagemanager'],
+
+            ]
+        ]) ?>
+
+    <?= $form->field($model, 'faq')->widget(\yii\redactor\widgets\Redactor::className(),
+        [
+            'clientOptions' => [
+                'minHeight' =>'300px',
+                'imageManagerJson' => ['/redactor/upload/image-json'],
+                'imageUpload' => ['/redactor/upload/image'],
+                'fileUpload' => ['/redactor/upload/file'],
+                'lang' => 'zh_cn',
+                'plugins' => ['clips', 'fontcolor','imagemanager'],
+
+            ]
+        ]) ?>
+
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? '创建' : '保存', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

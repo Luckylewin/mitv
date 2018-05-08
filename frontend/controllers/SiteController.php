@@ -2,6 +2,7 @@
 namespace frontend\controllers;
 
 use common\models\User;
+use common\queue\SendMail;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -13,12 +14,14 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use yii\web\Response;
 
 /**
  * Site controller
  */
 class SiteController extends Controller
 {
+
     /**
      * @inheritdoc
      */
@@ -180,6 +183,26 @@ class SiteController extends Controller
         ]);
     }
 
+    public function actionJudge()
+    {
+        Yii::$app->response->format = Response::FORMAT_JSON;
+        $user = Yii::$app->request->get('user');
+        $user = User::find()->select('id,email')->where(['username' => $user])->limit(1)->one();
+        if ($user) {
+            return [
+                'code' => '0',
+                'msg' => '帐号存在',
+                'data' => [
+                    'email' => $user->email
+                ]
+            ];
+        }
+        return [
+            'code' => '1',
+            'msg' => '帐号不存在'
+        ];
+    }
+
     /**
      * Requests password reset.
      *
@@ -228,4 +251,25 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
+
+    public function actionPush()
+    {
+        $id = Yii::$app->queue->push(new SendMail([
+            'username' => '876505905',
+            'message' => "用户876505905,恭喜注册成功",
+            "email" => '876505905@qq.com'
+        ]));
+
+        var_dump($id);
+    }
+
+    public function actionTest()
+    {
+        $message = "The account 876505905 has been activated <br>On MITV <br>Enjoy Your Time.";
+
+        return $this->render('@frontend/mail/activated-html', [
+            'message' => $message
+        ]);
+    }
+
 }

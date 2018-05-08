@@ -3,6 +3,7 @@ return [
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'language' => 'zh-CN',  //目标语言
     'runtimePath'  => dirname(dirname(__DIR__)) . '/storage/runtime',
+    'bootstrap' => ['queue'],
     'components' => [
         'db' => [
             'class' => 'yii\db\Connection',
@@ -26,6 +27,12 @@ return [
             ],
             //'linkAssets' => true,
             // ...
+        ],
+
+        'queue' => [
+            'class' => \yii\queue\file\Queue::className(),
+            /*'as log' => \yii\queue\LogBehavior::className(),*/
+            'path' => '@webroot/storage/runtime/queue',
         ],
 
         /**

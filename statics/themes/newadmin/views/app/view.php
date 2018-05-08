@@ -32,16 +32,24 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'short_introduce',
                 'format' => 'raw'
             ],
-            [
-                    'attribute' => 'introduce',
-                    'format' => 'raw'
-            ],
+
             'month_price',
             'season_price',
             'half_price',
             'year_price',
             'free_day',
             'imgae',
+            [
+                'attribute' => 'introduce',
+                'format' => 'raw',
+                'options' =>  [
+                        'style' => 'max-width:300px;'
+                ]
+            ],
+            [
+                'attribute' => 'faq',
+                'format' => 'raw'
+            ],
         ],
     ]) ?>
 

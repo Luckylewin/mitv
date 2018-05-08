@@ -12,23 +12,8 @@ use yii\filters\VerbFilter;
 /**
  * AppController implements the CRUD actions for App model.
  */
-class AppController extends Controller
+class AppController extends BaseController
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
-
     /**
      * Lists all App models.
      * @return mixed
