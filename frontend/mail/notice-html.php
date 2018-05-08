@@ -76,7 +76,7 @@ use \yii\helpers\Url;
                                         <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:400px;" class="emailContainer">
                                             <tbody><tr>
                                                 <td align="center" valign="top" id="logoContainer" style="padding-top:40px; padding-bottom:40px;">
-                                                    <img src="http://47.90.40.108:8088/statics/images/vip.png" height="63" width="60" style="color:#FFFFFF; font-family:'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:12px; font-weight:400; letter-spacing:-1px; padding:0; margin:0; text-align:center;">
+                                                   <!-- <img src="http://47.90.40.108:8088/statics/images/vip.png" height="63" width="60" style="color:#FFFFFF; font-family:'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:12px; font-weight:400; letter-spacing:-1px; padding:0; margin:0; text-align:center;">-->
                                                 </td>
                                             </tr>
                                             </tbody></table>

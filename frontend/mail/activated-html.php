@@ -76,7 +76,7 @@ use \yii\helpers\Url;
                                         <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:400px;" class="emailContainer">
                                             <tbody><tr>
                                                 <td align="center" valign="top" id="logoContainer" style="padding-top:40px; padding-bottom:40px;">
-                                                    <img src="http://47.90.40.108:8088/statics/images/vip.png" height="63" width="60" style="color:#FFFFFF; font-family:'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:12px; font-weight:400; letter-spacing:-1px; padding:0; margin:0; text-align:center;">
+                                                   <!-- <img src="http://47.90.40.108:8088/statics/images/vip.png" height="63" width="60" style="color:#FFFFFF; font-family:'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:12px; font-weight:400; letter-spacing:-1px; padding:0; margin:0; text-align:center;">-->
                                                 </td>
                                             </tr>
                                             </tbody></table>
@@ -120,7 +120,7 @@ use \yii\helpers\Url;
                                                                 <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
                                                                     <tbody><tr>
                                                                         <td align="left" valign="top" id="bodyContent" style="padding-bottom:40px;">
-                                                                            <h1 style="color:#606060; font-family:'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:23px; font-style:normal; font-weight:600; line-height:42px; letter-spacing:normal; margin:0; padding:0; text-align:center;">
+                                                                            <h1 style="color:#606060; font-family:'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:15px; font-style:normal; font-weight:400; line-height:42px; letter-spacing:normal; margin:0; padding:0; text-align:center;">
                                                                                 <?= $message ?>
                                                                             </h1>
                                                                         </td>
