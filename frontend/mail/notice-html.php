@@ -120,7 +120,7 @@ use \yii\helpers\Url;
                                                                 <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
                                                                     <tbody><tr>
                                                                         <td align="left" valign="top" id="bodyContent" style="padding-bottom:40px;">
-                                                                            <h1 style="color:#606060; font-family:'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:23px; font-style:normal; font-weight:600; line-height:42px; letter-spacing:normal; margin:0; padding:0; text-align:center;">
+                                                                            <h1 style="color:#606060; font-family:'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:23px; font-style:normal; font-weight:300; line-height:42px; letter-spacing:normal; margin:0; padding:0; text-align:left;">
                                                                                 <?= $message ?>
                                                                             </h1>
                                                                         </td>

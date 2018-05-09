@@ -131,7 +131,7 @@ use \yii\helpers\Url;
                                                                                 <tbody><tr>
                                                                                     <td align="center" valign="middle">
 
-                                                                                        <a href="<?= \yii\helpers\Url::to(['member/index']) ?>" target="_blank" style="background-color:#52BAD5; border-collapse:separate; border-top:20px solid #52BAD5; border-right:20px solid #52BAD5; border-bottom:20px solid #52BAD5; border-left:20px solid #52BAD5; border-radius:3px; color:#FFFFFF; display:inline-block; font-family:'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:16px; font-weight:600; letter-spacing:.3px; text-decoration:none;">MORE DETAIL</a>
+                                                                                        <a href="<?= \yii\helpers\Url::to(['site/login','des' => base64_encode(Url::to(['member/index'], true))]) ?>" target="_blank" style="background-color:#52BAD5; border-collapse:separate; border-top:20px solid #52BAD5; border-right:20px solid #52BAD5; border-bottom:20px solid #52BAD5; border-left:20px solid #52BAD5; border-radius:3px; color:#FFFFFF; display:inline-block; font-family:'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:16px; font-weight:600; letter-spacing:.3px; text-decoration:none;">MORE DETAIL</a>
 
                                                                                     </td>
                                                                                 </tr>
