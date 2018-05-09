@@ -256,7 +256,7 @@ class SiteController extends Controller
     {
         $id = Yii::$app->queue->push(new SendMail([
             'subject' => '测试',
-            'html' => 'notice-html',
+            'html' => 'activated-html',
             'text' => 'notice-text',
             'username' => '876505905',
             'message' => "用户876505905,恭喜注册成功",

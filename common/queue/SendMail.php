@@ -25,7 +25,11 @@ class SendMail extends BaseObject implements JobInterface
     {
         try{
             Yii::$app->mailer->compose(['html'=>$this->html, 'text'=>$this->text],
-                                       ['message' => $this->message]
+                                       [
+                                           'username' => $this->username,
+                                           'message' => $this->message,
+
+                                       ]
                )->setTo($this->email)
                 ->setSubject($this->subject)
                 ->send();

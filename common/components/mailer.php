@@ -39,7 +39,7 @@ class mailer
 
         $appName = $event->appName;
         $subject = "Activated Notification";
-        $message = "Congratulations! Your account \"{$user->username}\" has been activated on {$appName} .<br/>Enjoy Your Time.";
+        $message = "Congratulations! Your account has been activated on {$appName} .<br/>Enjoy Your Time.";
 
         Yii::$app->queue->push(new SendMail([
             "html" => 'activated-html',

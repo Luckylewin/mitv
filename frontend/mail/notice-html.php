@@ -1,176 +1,652 @@
-<?php
-use yii\helpers\Html;
-use \yii\helpers\Url;
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+    <!-- NAME: GDPR SUBSCRIBER ALERT -->
+    <!--[if gte mso 15]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+    </xml>
+    <![endif]-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>*|MC:SUBJECT|*</title>
 
-/* @var $this yii\web\View */
-/* @var $name string */
-?>
+    <style type="text/css">
+        p{
+            margin:10px 0;
+            padding:0;
+        }
+        table{
+            border-collapse:collapse;
+        }
+        h1,h2,h3,h4,h5,h6{
+            display:block;
+            margin:0;
+            padding:0;
+        }
+        img,a img{
+            border:0;
+            height:auto;
+            outline:none;
+            text-decoration:none;
+        }
+        body,#bodyTable,#bodyCell{
+            height:100%;
+            margin:0;
+            padding:0;
+            width:100%;
+        }
+        .mcnPreviewText{
+            display:none !important;
+        }
+        #outlook a{
+            padding:0;
+        }
+        img{
+            -ms-interpolation-mode:bicubic;
+        }
+        table{
+            mso-table-lspace:0pt;
+            mso-table-rspace:0pt;
+        }
+        .ReadMsgBody{
+            width:100%;
+        }
+        .ExternalClass{
+            width:100%;
+        }
+        p,a,li,td,blockquote{
+            mso-line-height-rule:exactly;
+        }
+        a[href^=tel],a[href^=sms]{
+            color:inherit;
+            cursor:default;
+            text-decoration:none;
+        }
+        p,a,li,td,body,table,blockquote{
+            -ms-text-size-adjust:100%;
+            -webkit-text-size-adjust:100%;
+        }
+        .ExternalClass,.ExternalClass p,.ExternalClass td,.ExternalClass div,.ExternalClass span,.ExternalClass font{
+            line-height:100%;
+        }
+        a[x-apple-data-detectors]{
+            color:inherit !important;
+            text-decoration:none !important;
+            font-size:inherit !important;
+            font-family:inherit !important;
+            font-weight:inherit !important;
+            line-height:inherit !important;
+        }
+        .templateContainer{
+            max-width:600px !important;
+        }
+        a.mcnButton{
+            display:block;
+        }
+        .mcnImage,.mcnRetinaImage{
+            vertical-align:bottom;
+        }
+        .mcnTextContent{
+            word-break:break-word;
+        }
+        .mcnTextContent img{
+            height:auto !important;
+        }
+        .mcnDividerBlock{
+            table-layout:fixed !important;
+        }
+        /*
+        @tab Page
+        @section Heading 1
+        @style heading 1
+        */
+        h1{
+            /*@editable*/color:#222222;
+            /*@editable*/font-family:Helvetica;
+            /*@editable*/font-size:40px;
+            /*@editable*/font-style:normal;
+            /*@editable*/font-weight:bold;
+            /*@editable*/line-height:150%;
+            /*@editable*/letter-spacing:normal;
+            /*@editable*/text-align:center;
+        }
+        /*
+        @tab Page
+        @section Heading 2
+        @style heading 2
+        */
+        h2{
+            /*@editable*/color:#222222;
+            /*@editable*/font-family:Helvetica;
+            /*@editable*/font-size:34px;
+            /*@editable*/font-style:normal;
+            /*@editable*/font-weight:bold;
+            /*@editable*/line-height:150%;
+            /*@editable*/letter-spacing:normal;
+            /*@editable*/text-align:left;
+        }
+        /*
+        @tab Page
+        @section Heading 3
+        @style heading 3
+        */
+        h3{
+            /*@editable*/color:#444444;
+            /*@editable*/font-family:Helvetica;
+            /*@editable*/font-size:22px;
+            /*@editable*/font-style:normal;
+            /*@editable*/font-weight:bold;
+            /*@editable*/line-height:150%;
+            /*@editable*/letter-spacing:normal;
+            /*@editable*/text-align:left;
+        }
+        /*
+        @tab Page
+        @section Heading 4
+        @style heading 4
+        */
+        h4{
+            /*@editable*/color:#999999;
+            /*@editable*/font-family:Georgia;
+            /*@editable*/font-size:20px;
+            /*@editable*/font-style:italic;
+            /*@editable*/font-weight:normal;
+            /*@editable*/line-height:125%;
+            /*@editable*/letter-spacing:normal;
+            /*@editable*/text-align:left;
+        }
+        /*
+        @tab Header
+        @section Header Container Style
+        */
+        #templateHeader{
+            /*@editable*/background-color:#F2F2F2;
+            /*@editable*/background-image:none;
+            /*@editable*/background-repeat:no-repeat;
+            /*@editable*/background-position:center;
+            /*@editable*/background-size:cover;
+            /*@editable*/border-top:0;
+            /*@editable*/border-bottom:0;
+            /*@editable*/padding-top:36px;
+            /*@editable*/padding-bottom:0;
+        }
+        /*
+        @tab Header
+        @section Header Interior Style
+        */
+        .headerContainer{
+            /*@editable*/background-color:#FFFFFF;
+            /*@editable*/background-image:none;
+            /*@editable*/background-repeat:no-repeat;
+            /*@editable*/background-position:center;
+            /*@editable*/background-size:cover;
+            /*@editable*/border-top:0;
+            /*@editable*/border-bottom:0;
+            /*@editable*/padding-top:45px;
+            /*@editable*/padding-bottom:45px;
+        }
+        /*
+        @tab Header
+        @section Header Text
+        */
+        .headerContainer .mcnTextContent,.headerContainer .mcnTextContent p{
+            /*@editable*/color:#808080;
+            /*@editable*/font-family:Helvetica;
+            /*@editable*/font-size:16px;
+            /*@editable*/line-height:150%;
+            /*@editable*/text-align:left;
+        }
+        /*
+        @tab Header
+        @section Header Link
+        */
+        .headerContainer .mcnTextContent a,.headerContainer .mcnTextContent p a{
+            /*@editable*/color:#007E9E;
+            /*@editable*/font-weight:normal;
+            /*@editable*/text-decoration:underline;
+        }
+        /*
+        @tab Body
+        @section Body Container Style
+        */
+        #templateBody{
+            /*@editable*/background-color:#F2F2F2;
+            /*@editable*/background-image:none;
+            /*@editable*/background-repeat:no-repeat;
+            /*@editable*/background-position:center;
+            /*@editable*/background-size:cover;
+            /*@editable*/border-top:0;
+            /*@editable*/border-bottom:0;
+            /*@editable*/padding-top:0;
+            /*@editable*/padding-bottom:0;
+        }
+        /*
+        @tab Body
+        @section Body Interior Style
+        */
+        .bodyContainer{
+            /*@editable*/background-color:#FFFFFF;
+            /*@editable*/background-image:none;
+            /*@editable*/background-repeat:no-repeat;
+            /*@editable*/background-position:center;
+            /*@editable*/background-size:cover;
+            /*@editable*/border-top:0;
+            /*@editable*/border-bottom:0;
+            /*@editable*/padding-top:0;
+            /*@editable*/padding-bottom:45px;
+        }
+        /*
+        @tab Body
+        @section Body Text
+        */
+        .bodyContainer .mcnTextContent,.bodyContainer .mcnTextContent p{
+            /*@editable*/color:#808080;
+            /*@editable*/font-family:Helvetica;
+            /*@editable*/font-size:16px;
+            /*@editable*/line-height:150%;
+            /*@editable*/text-align:left;
+        }
+        /*
+        @tab Body
+        @section Body Link
+        */
+        .bodyContainer .mcnTextContent a,.bodyContainer .mcnTextContent p a{
+            /*@editable*/color:#007E9E;
+            /*@editable*/font-weight:normal;
+            /*@editable*/text-decoration:underline;
+        }
+        /*
+        @tab Footer
+        @section Footer Style
+        */
+        #templateFooter{
+            /*@editable*/background-color:#f1f1f1;
+            /*@editable*/background-image:none;
+            /*@editable*/background-repeat:no-repeat;
+            /*@editable*/background-position:center;
+            /*@editable*/background-size:cover;
+            /*@editable*/border-top:1px none ;
+            /*@editable*/border-bottom:0;
+            /*@editable*/padding-top:0;
+            /*@editable*/padding-bottom:36px;
+        }
+        /*
+        @tab Footer
+        @section Footer Interior Style
+        */
+        .footerContainer{
+            /*@editable*/background-color:#0069d9;
+            /*@editable*/background-image:none;
+            /*@editable*/background-repeat:no-repeat;
+            /*@editable*/background-position:center;
+            /*@editable*/background-size:cover;
+            /*@editable*/border-top:1px none ;
+            /*@editable*/border-bottom:0;
+            /*@editable*/padding-top:45px;
+            /*@editable*/padding-bottom:45px;
+        }
+        /*
+        @tab Footer
+        @section Footer Text
+        */
+        .footerContainer .mcnTextContent,.footerContainer .mcnTextContent p{
+            /*@editable*/color:#FFFFFF;
+            /*@editable*/font-family:'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            /*@editable*/font-size:13px;
+            /*@editable*/line-height:150%;
+            /*@editable*/text-align:center;
+        }
+        /*
+        @tab Footer
+        @section Footer Link
+        */
+        .footerContainer .mcnTextContent a,.footerContainer .mcnTextContent p a{
+            /*@editable*/color:#FFFFFF;
+            /*@editable*/font-weight:normal;
+            /*@editable*/text-decoration:underline;
+        }
+        @media only screen and (min-width:768px){
+            .templateContainer{
+                width:600px !important;
+            }
 
+        }	@media only screen and (max-width: 480px){
+            body,table,td,p,a,li,blockquote{
+                -webkit-text-size-adjust:none !important;
+            }
 
-<div id="contentDiv" onmouseover="getTop().stopPropagation(event);" onclick="getTop().preSwapLink(event, 'html', 'ZC1108-fUwE37RI_MIyBDBq23rCF85');" style="position:relative;font-size:14px;height:auto;padding:15px 15px 10px 15px;z-index:1;zoom:1;line-height:1.7;" class="body">    <div id="qm_con_body"><div id="mailContentContainer" class="qmbox qm_con_body_content qqmail_webmail_only" style="">
-        <style type="text/css">
-                /*////// RESET STYLES //////*/
-                .qmbox p{margin:10px 0; padding:0;}
-                .qmbox table{border-collapse:collapse;}
-                .qmbox h1, .qmbox h2, .qmbox h3, .qmbox h4, .qmbox h5, .qmbox h6{display:block; margin:0; padding:0;}
-                .qmbox img, .qmbox a img{border:0; height:auto; outline:none; text-decoration:none;}
-                .qmbox body, .qmbox #bodyTable, .qmbox #bodyCell{height:100%; margin:0; padding:0; width:100%;}
+        }	@media only screen and (max-width: 480px){
+            body{
+                width:100% !important;
+                min-width:100% !important;
+            }
 
-                /*////// CLIENT-SPECIFIC STYLES //////*/
-                .qmbox #outlook a{padding:0;} /* Force Outlook 2007 and up to provide a "view in browser" message. */
-                @-ms-viewport{width:device-width;} /* Force IE "snap mode" to render widths normally. */
-                .qmbox img{-ms-interpolation-mode:bicubic;} /* Force IE to smoothly render resized images. */
-                .qmbox table{mso-table-lspace:0pt; mso-table-rspace:0pt;} /* Remove spacing between tables in Outlook Desktop. */
-                .qmbox .ReadMsgBody{width:100%;} .qmbox .ExternalClass{width:100%;} /* Force Outlook.com to display emails at full width. */
-                .qmbox p, .qmbox a, .qmbox li, .qmbox td, .qmbox blockquote{mso-line-height-rule:exactly;} /* Force Outlook Desktop to render line heights as they're originally set. */
-                .qmbox a[href^="tel"], .qmbox a[href^="sms"]{color:inherit; cursor:default; text-decoration:none;} /* Force mobile devices to inherit declared link styles. */
-                .qmbox p, .qmbox a, .qmbox li, .qmbox td, .qmbox body, .qmbox table, .qmbox blockquote{-ms-text-size-adjust:100%; -webkit-text-size-adjust:100%;} /* Prevent Windows- and Webkit-based platforms from changing declared text sizes. */
-                .qmbox .ExternalClass, .qmbox .ExternalClass p, .qmbox .ExternalClass td, .qmbox .ExternalClass div, .qmbox .ExternalClass span, .qmbox .ExternalClass font{line-height:100%;} /* Force Outlook.com to display line heights normally. */
-                .qmbox a[x-apple-data-detectors]{color:inherit !important; text-decoration:none !important; font-size:inherit !important; font-family:inherit !important; font-weight:inherit !important; line-height:inherit !important;} /* Force iOS devices to heed link styles set in CSS. */
+        }	@media only screen and (max-width: 480px){
+            .mcnRetinaImage{
+                max-width:100% !important;
+            }
 
+        }	@media only screen and (max-width: 480px){
+            .mcnImage{
+                width:100% !important;
+            }
 
-                .qmbox #footerContent a{color:#373737 !important;}
+        }	@media only screen and (max-width: 480px){
+            .mcnCartContainer,.mcnCaptionTopContent,.mcnRecContentContainer,.mcnCaptionBottomContent,.mcnTextContentContainer,.mcnBoxedTextContentContainer,.mcnImageGroupContentContainer,.mcnCaptionLeftTextContentContainer,.mcnCaptionRightTextContentContainer,.mcnCaptionLeftImageContentContainer,.mcnCaptionRightImageContentContainer,.mcnImageCardLeftTextContentContainer,.mcnImageCardRightTextContentContainer,.mcnImageCardLeftImageContentContainer,.mcnImageCardRightImageContentContainer{
+                max-width:100% !important;
+                width:100% !important;
+            }
 
-                /*////// MOBILE STYLES //////*/
-                @media only screen and (max-width:480px){
-                    .qmbox body{width:100% !important; min-width:100% !important;}
-                    .qmbox h1{font-size:24px !important;}
-                    .qmbox #templateHeader{padding-right:20px !important; padding-left:20px !important;}
-                    .qmbox #headerContainer{padding-right:0 !important; padding-left:0 !important;}
-                    .qmbox #headerTable{border-top-left-radius:0 !important; border-top-right-radius:0 !important;}
-                    .qmbox #headerTable td{padding-top:30px !important;}
-                    .qmbox #bodyContainer{padding-right:20px !important; padding-left:20px !important;}
-                    .qmbox #bodyContent{padding-right:0 !important;}
-                    .qmbox #footerContent p{border-bottom:1px solid #E5E5E5; font-size:14px !important; padding-bottom:40px !important;}
-                    .qmbox .utilityLink{border-bottom:1px solid #E5E5E5; display:block; font-size:13px !important; padding-top:20px; padding-bottom:20px; text-decoration:none !important;}
-                    .qmbox .mobileHide{display:none; visibility:hidden;}
-                }
-                .qmbox .qmbox p{margin:10px 0; padding:0;}
-                .qmbox .qmbox table{border-collapse:collapse;}
-                .qmbox .qmbox h1,.qmbox .qmbox h2,.qmbox .qmbox h3,.qmbox .qmbox h4,.qmbox .qmbox h5,.qmbox .qmbox h6{display:block; margin:0; padding:0;}
-                .qmbox .qmbox img,.qmbox .qmbox a img{border:0; height:auto; outline:none; text-decoration:none;}
-                .qmbox .qmbox body,.qmbox .qmbox #bodyTable,.qmbox .qmbox #bodyCell{height:100%; margin:0; padding:0; width:100%;}
-                .qmbox .qmbox #outlook a{padding:0;}
-                .qmbox .qmbox img{-ms-interpolation-mode:bicubic;}
-                .qmbox .qmbox table{mso-table-lspace:0pt; mso-table-rspace:0pt;}
-                .qmbox .qmbox .ReadMsgBody{width:100%;}
-                .qmbox .qmbox .ExternalClass{width:100%;}
-                .qmbox .qmbox p,.qmbox .qmbox a,.qmbox .qmbox li,.qmbox .qmbox td,.qmbox .qmbox blockquote{mso-line-height-rule:exactly;}
-                .qmbox .qmbox a[href^="tel"],.qmbox .qmbox a[href^="sms"]{color:inherit; cursor:default; text-decoration:none;}
-                .qmbox .qmbox p,.qmbox .qmbox a,.qmbox .qmbox li,.qmbox .qmbox td,.qmbox .qmbox body,.qmbox .qmbox table,.qmbox .qmbox blockquote{-ms-text-size-adjust:100%; -webkit-text-size-adjust:100%;}
-                .qmbox .qmbox .ExternalClass,.qmbox .qmbox .ExternalClass p,.qmbox .qmbox .ExternalClass td,.qmbox .qmbox .ExternalClass div,.qmbox .qmbox .ExternalClass span,.qmbox .qmbox .ExternalClass font{line-height:100%;}
-                .qmbox .qmbox a[x-apple-data-detectors]{color:inherit !important; text-decoration:none !important; font-size:inherit !important; font-family:inherit !important; font-weight:inherit !important; line-height:inherit !important;}
-                .qmbox .qmbox #footerContent a{color:#373737 !important;}
-            </style>
+        }	@media only screen and (max-width: 480px){
+            .mcnBoxedTextContentContainer{
+                min-width:100% !important;
+            }
 
+        }	@media only screen and (max-width: 480px){
+            .mcnImageGroupContent{
+                padding:9px !important;
+            }
+
+        }	@media only screen and (max-width: 480px){
+            .mcnCaptionLeftContentOuter .mcnTextContent,.mcnCaptionRightContentOuter .mcnTextContent{
+                padding-top:9px !important;
+            }
+
+        }	@media only screen and (max-width: 480px){
+            .mcnImageCardTopImageContent,.mcnCaptionBottomContent:last-child .mcnCaptionBottomImageContent,.mcnCaptionBlockInner .mcnCaptionTopContent:last-child .mcnTextContent{
+                padding-top:18px !important;
+            }
+
+        }	@media only screen and (max-width: 480px){
+            .mcnImageCardBottomImageContent{
+                padding-bottom:9px !important;
+            }
+
+        }	@media only screen and (max-width: 480px){
+            .mcnImageGroupBlockInner{
+                padding-top:0 !important;
+                padding-bottom:0 !important;
+            }
+
+        }	@media only screen and (max-width: 480px){
+            .mcnImageGroupBlockOuter{
+                padding-top:9px !important;
+                padding-bottom:9px !important;
+            }
+
+        }	@media only screen and (max-width: 480px){
+            .mcnTextContent,.mcnBoxedTextContentColumn{
+                padding-right:18px !important;
+                padding-left:18px !important;
+            }
+
+        }	@media only screen and (max-width: 480px){
+            .mcnImageCardLeftImageContent,.mcnImageCardRightImageContent{
+                padding-right:18px !important;
+                padding-bottom:0 !important;
+                padding-left:18px !important;
+            }
+
+        }	@media only screen and (max-width: 480px){
+            .mcpreview-image-uploader{
+                display:none !important;
+                width:100% !important;
+            }
+
+        }	@media only screen and (max-width: 480px){
+            /*
+            @tab Mobile Styles
+            @section Heading 1
+            @tip Make the first-level headings larger in size for better readability on small screens.
+            */
+            h1{
+                /*@editable*/font-size:30px !important;
+                /*@editable*/line-height:125% !important;
+            }
+
+        }	@media only screen and (max-width: 480px){
+            /*
+            @tab Mobile Styles
+            @section Heading 2
+            @tip Make the second-level headings larger in size for better readability on small screens.
+            */
+            h2{
+                /*@editable*/font-size:26px !important;
+                /*@editable*/line-height:125% !important;
+            }
+
+        }	@media only screen and (max-width: 480px){
+            /*
+            @tab Mobile Styles
+            @section Heading 3
+            @tip Make the third-level headings larger in size for better readability on small screens.
+            */
+            h3{
+                /*@editable*/font-size:20px !important;
+                /*@editable*/line-height:150% !important;
+            }
+
+        }	@media only screen and (max-width: 480px){
+            /*
+            @tab Mobile Styles
+            @section Heading 4
+            @tip Make the fourth-level headings larger in size for better readability on small screens.
+            */
+            h4{
+                /*@editable*/font-size:18px !important;
+                /*@editable*/line-height:150% !important;
+            }
+
+        }	@media only screen and (max-width: 480px){
+            /*
+            @tab Mobile Styles
+            @section Boxed Text
+            @tip Make the boxed text larger in size for better readability on small screens. We recommend a font size of at least 16px.
+            */
+            .mcnBoxedTextContentContainer .mcnTextContent,.mcnBoxedTextContentContainer .mcnTextContent p{
+                /*@editable*/font-size:14px !important;
+                /*@editable*/line-height:150% !important;
+            }
+
+        }	@media only screen and (max-width: 480px){
+            /*
+            @tab Mobile Styles
+            @section Header Text
+            @tip Make the header text larger in size for better readability on small screens.
+            */
+            .headerContainer .mcnTextContent,.headerContainer .mcnTextContent p{
+                /*@editable*/font-size:16px !important;
+                /*@editable*/line-height:150% !important;
+            }
+
+        }	@media only screen and (max-width: 480px){
+            /*
+            @tab Mobile Styles
+            @section Body Text
+            @tip Make the body text larger in size for better readability on small screens. We recommend a font size of at least 16px.
+            */
+            .bodyContainer .mcnTextContent,.bodyContainer .mcnTextContent p{
+                /*@editable*/font-size:16px !important;
+                /*@editable*/line-height:150% !important;
+            }
+
+        }	@media only screen and (max-width: 480px){
+            /*
+            @tab Mobile Styles
+            @section Footer Text
+            @tip Make the footer content text larger in size for better readability on small screens.
+            */
+            .footerContainer .mcnTextContent,.footerContainer .mcnTextContent p{
+                /*@editable*/font-size:14px !important;
+                /*@editable*/line-height:150% !important;
+            }
+
+        }</style></head>
+<body>
+<!--*|IF:MC_PREVIEW_TEXT|*-->
+<!--[if !gte mso 9]><!----><span class="mcnPreviewText" style="display:none; font-size:0px; line-height:0px; max-height:0px; max-width:0px; opacity:0; overflow:hidden; visibility:hidden; mso-hide:all;">*|MC_PREVIEW_TEXT|*</span><!--<![endif]-->
+<!--*|END:IF|*-->
 <center>
-                <table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">
-                    <tbody><tr>
-                        <td align="center" valign="top" id="bodyCell">
-                            <span style="color:#FFFFFF; display:none; font-size:0px; height:0px; visibility:hidden; width:0px;">You're almost ready to get started!</span>
-
-                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tbody><tr>
-                                    <td align="center" bgcolor="#52BAD5" valign="top" id="templateHeader" style="background-color:#52BAD5; padding-right:30px; padding-left:30px;">
-
-                                        <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:400px;" class="emailContainer">
-                                            <tbody><tr>
-                                                <td align="center" valign="top" id="logoContainer" style="padding-top:40px; padding-bottom:40px;">
-                                                   <!-- <img src="http://47.90.40.108:8088/statics/images/vip.png" height="63" width="60" style="color:#FFFFFF; font-family:'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:12px; font-weight:400; letter-spacing:-1px; padding:0; margin:0; text-align:center;">-->
-                                                </td>
-                                            </tr>
-                                            </tbody></table>
-
-                                    </td>
-                                </tr>
+    <table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">
+        <tr>
+            <td align="center" valign="top" id="bodyCell">
+                <!-- BEGIN TEMPLATE // -->
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="center" valign="top" id="templateHeader">
+                            <!--[if (gte mso 9)|(IE)]>
+                            <table align="center" border="0" cellspacing="0" cellpadding="0" width="600" style="width:600px;">
                                 <tr>
-                                    <td align="center" bgcolor="#52BAD5" valign="top" id="headerContainer" style="background-color:#52BAD5; padding-right:30px; padding-left:30px;">
-                                        <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                            <tbody><tr>
-                                                <td align="center" valign="top">
-
-                                                    <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:640px;" class="emailContainer">
-                                                        <tbody><tr>
-                                                            <td align="center" valign="top">
-                                                                <table align="center" bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0" width="100%" id="headerTable" style="background-color:#FFFFFF; border-collapse:separate; border-top-left-radius:4px; border-top-right-radius:4px;">
-                                                                    <tbody><tr>
-                                                                        <td align="center" valign="top" width="100%" style="padding-top:40px; padding-bottom:0;">&nbsp;</td>
-                                                                    </tr>
-                                                                    </tbody></table>
-                                                            </td>
-                                                        </tr>
-                                                        </tbody></table>
-
-                                                </td>
-                                            </tr>
-                                            </tbody></table>
-                                    </td>
-                                </tr>
+                                    <td align="center" valign="top" width="600" style="width:600px;">
+                            <![endif]-->
+                            <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" class="templateContainer">
                                 <tr>
-                                    <td align="center" valign="top" id="templateBody">
-                                        <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                            <tbody><tr>
-                                                <td align="center" valign="top">
-
-                                                    <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:700px;" class="emailContainer">
-                                                        <tbody><tr>
-                                                            <td align="right" valign="top" width="30" class="mobileHide">
-                                                            </td>
-                                                            <td valign="top" width="100%" style="padding-right:70px; padding-left:40px;" id="bodyContainer">
-                                                                <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                                                    <tbody><tr>
-                                                                        <td align="left" valign="top" id="bodyContent" style="padding-bottom:40px;">
-                                                                            <h1 style="color:#606060; font-family:'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:23px; font-style:normal; font-weight:300; line-height:42px; letter-spacing:normal; margin:0; padding:0; text-align:left;">
-                                                                                <?= $message ?>
-                                                                            </h1>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td align="center" style="padding-bottom:5px;" valign="top">
-                                                                            <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                                                                <tbody><tr>
-                                                                                   <!-- <td align="center" valign="middle">
-
-                                                                                        <a href="<?/*= \yii\helpers\Url::to(['site']) */?>" target="_blank" style="background-color:#52BAD5; border-collapse:separate; border-top:20px solid #52BAD5; border-right:20px solid #52BAD5; border-bottom:20px solid #52BAD5; border-left:20px solid #52BAD5; border-radius:3px; color:#FFFFFF; display:inline-block; font-family:'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:16px; font-weight:600; letter-spacing:.3px; text-decoration:none;">Go TO</a>
-
-                                                                                    </td>-->
-                                                                                </tr>
-                                                                                </tbody></table>
-                                                                        </td>
-                                                                    </tr>
-
-                                                                    </tbody></table>
-                                                            </td>
-                                                        </tr>
-                                                        </tbody></table>
-
-                                                </td>
-                                            </tr>
-                                            </tbody></table>
-                                    </td>
+                                    <td valign="top" class="headerContainer"></td>
                                 </tr>
-                                <tr>
-                                    <td align="center" valign="top" id="templateFooter" style="padding-right:30px; padding-left:30px;">
-
-                                        <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:640px;" class="emailContainer">
-                                            <tbody><tr>
-                                                <td valign="top" id="footerContent" style="border-top:2px solid #F2F2F2; color:#484848; font-family:'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:12px; font-weight:400; line-height:24px; padding-top:40px;  padding-bottom:20px; text-align:center;">
-                                                    <p style="color:#484848; font-family:'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:12px; font-weight:400; line-height:24px; padding:0; margin:0; text-align:center;">© <span style="border-bottom:1px dashed #ccc;z-index:1" t="7" onclick="return false;" data="2001-<?= date('Y') ?>">2017-<?= date('Y') ?></span> TV APP<sup>®</sup>, All Rights Reserved.<br></p>
-                                                    <a href="<?php echo Url::to(['site/about']) ?>" target="_blank" style="color:#373737; text-decoration:underline;" class="utilityLink">About us</a><span class="mobileHide"> &nbsp; • &nbsp; </span>
-                                                    <a href="<?php echo Url::to(['site/contact']) ?>" target="_blank" style="color:#373737; text-decoration:underline;" class="utilityLink">Contact Us</a><span class="mobileHide"> &nbsp;&nbsp; </span>
-                                                    </td>
-                                            </tr>
-                                            </tbody></table>
-
-                                    </td>
-                                </tr>
-                                </tbody></table>
-
+                            </table>
+                            <!--[if (gte mso 9)|(IE)]>
+                            </td>
+                            </tr>
+                            </table>
+                            <![endif]-->
                         </td>
                     </tr>
-                    </tbody></table>
-            </center>
-            <img src="http://click.mailchimpapp.com/track/open.php?u=10612303&amp;id=74042198cd6d4e23b00d84df4eb8f7b1" height="1" width="1">
+                    <tr>
+                        <td align="center" valign="top" id="templateBody">
+                            <!--[if (gte mso 9)|(IE)]>
+                            <table align="center" border="0" cellspacing="0" cellpadding="0" width="600" style="width:600px;">
+                                <tr>
+                                    <td align="center" valign="top" width="600" style="width:600px;">
+                            <![endif]-->
+                            <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" class="templateContainer">
+                                <tr>
+                                    <td valign="top" class="bodyContainer"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnTextBlock" style="min-width:100%;">
+                                            <tbody class="mcnTextBlockOuter">
+                                            <tr>
+                                                <td valign="top" class="mcnTextBlockInner" style="padding-top:9px;">
+                                                    <!--[if mso]>
+                                                    <table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;">
+                                                        <tr>
+                                                    <![endif]-->
 
+                                                    <!--[if mso]>
+                                                    <td valign="top" width="600" style="width:600px;">
+                                                    <![endif]-->
+                                                    <table align="left" border="0" cellpadding="0" cellspacing="0" style="max-width:100%; min-width:100%;" width="100%" class="mcnTextContentContainer">
+                                                        <tbody><tr>
 
-            <style type="text/css">.qmbox style, .qmbox script, .qmbox head, .qmbox link, .qmbox meta {display: none !important;}</style></div></div><!-- --><style>#mailContentContainer .txt {height:auto;}</style>  </div>
+                                                            <td valign="top" class="mcnTextContent" style="padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;">
+
+                                                                <h3>Hello <?= $username ?>,</h3>
+                                                                &nbsp;
+
+                                                                <p><?= $message ?></p>
+
+                                                                <p>&nbsp;</p>
+
+                                                            </td>
+                                                        </tr>
+                                                        </tbody></table>
+                                                    <!--[if mso]>
+                                                    </td>
+                                                    <![endif]-->
+
+                                                    <!--[if mso]>
+                                                    </tr>
+                                                    </table>
+                                                    <![endif]-->
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnDividerBlock" style="min-width:100%;">
+                                            <tbody class="mcnDividerBlockOuter">
+                                            <tr>
+                                                <td class="mcnDividerBlockInner" style="min-width: 100%; padding: 9px 18px 0px;">
+                                                    <table class="mcnDividerContent" border="0" cellpadding="0" cellspacing="0" width="100%" style="min-width:100%;">
+                                                        <tbody><tr>
+                                                            <td>
+                                                                <span></span>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody></table>
+                                                    <!--
+                                                                    <td class="mcnDividerBlockInner" style="padding: 18px;">
+                                                                    <hr class="mcnDividerContent" style="border-bottom-color:none; border-left-color:none; border-right-color:none; border-bottom-width:0; border-left-width:0; border-right-width:0; margin-top:0; margin-right:0; margin-bottom:0; margin-left:0;" />
+                                                    -->
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table></td>
+                                </tr>
+                            </table>
+                            <!--[if (gte mso 9)|(IE)]>
+                            </td>
+                            </tr>
+                            </table>
+                            <![endif]-->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="top" id="templateFooter">
+                            <!--[if (gte mso 9)|(IE)]>
+                            <table align="center" border="0" cellspacing="0" cellpadding="0" width="600" style="width:600px;">
+                                <tr>
+                                    <td align="center" valign="top" width="600" style="width:600px;">
+                            <![endif]-->
+                            <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" class="templateContainer">
+                                <tr>
+                                    <td valign="top" class="footerContainer"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnTextBlock" style="min-width:100%;">
+                                            <tbody class="mcnTextBlockOuter">
+                                            <tr>
+                                                <td valign="top" class="mcnTextBlockInner" style="padding-top:9px;">
+                                                    <!--[if mso]>
+                                                    <table align="left" border="0" cellspacing="0" cellpadding="0" width="100%" style="width:100%;">
+                                                        <tr>
+                                                    <![endif]-->
+
+                                                    <!--[if mso]>
+                                                    <td valign="top" width="600" style="width:600px;">
+                                                    <![endif]-->
+                                                    <table align="left" border="0" cellpadding="0" cellspacing="0" style="max-width:100%; min-width:100%;" width="100%" class="mcnTextContentContainer">
+                                                        <tbody><tr>
+
+                                                            <td valign="top" class="mcnTextContent" style="padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;">
+
+                                                                <em>Copyright © <?= date('Y') ?> TV APP, All rights reserved.</em>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody></table>
+                                                    <!--[if mso]>
+                                                    </td>
+                                                    <![endif]-->
+
+                                                    <!--[if mso]>
+                                                    </tr>
+                                                    </table>
+                                                    <![endif]-->
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table></td>
+                                </tr>
+                            </table>
+                            <!--[if (gte mso 9)|(IE)]>
+                            </td>
+                            </tr>
+                            </table>
+                            <![endif]-->
+                        </td>
+                    </tr>
+                </table>
+                <!-- // END TEMPLATE -->
+            </td>
+        </tr>
+    </table>
+</center>
+</body>
+</html>
