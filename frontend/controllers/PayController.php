@@ -147,6 +147,7 @@ class PayController extends Controller
 
                 $order->save(false);
 
+                Yii::$app->session->setFlash('pay_success', true);
                 return Yii::$app->response->redirect(Url::to(['index/success', 'order' =>  $invoice_number]));
             }
         }catch(\Exception $e){

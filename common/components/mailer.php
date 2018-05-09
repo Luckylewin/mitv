@@ -23,6 +23,8 @@ class mailer
         $subject = "Operation Notification";
 
         Yii::$app->queue->push(new SendMail([
+            "html" => 'notice-html',
+            "text" => 'notice-text',
             "subject" => $subject,
             'username' => $user->username,
             'message' => "The account \"{$user->username}\" will be activated <br> within 24 hours. <br>Thank you for your support.",
@@ -37,10 +39,11 @@ class mailer
 
         $appName = $event->appName;
         $subject = "Activated Notification";
-        $message = "Congratulations, your account \"{$user->username}\" <br> 
-                    has been activated on {$appName} <br>Enjoy Your Time.";
+        $message = "Congratulations, your account \"{$user->username}\" has been activated on {$appName} .Enjoy Your Time.";
 
         Yii::$app->queue->push(new SendMail([
+            "html" => 'activated-html',
+            "text" => 'notice-text',
             "subject" => $subject,
             'username' => $user->username,
             'message' => $message,

@@ -265,7 +265,7 @@ class SiteController extends Controller
 
     public function actionTest()
     {
-        $message = "The account 876505905 has been activated <br>On MITV <br>Enjoy Your Time.";
+        $message = "The account 876505905 has been activated On MITV .Enjoy Your Time.";
 
         return $this->render('@frontend/mail/activated-html', [
             'message' => $message

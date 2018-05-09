@@ -181,6 +181,12 @@ class IndexController extends Controller
     {
         $order = Order::findOne(['invoice_number' => $order]);
 
+        if (Yii::$app->session->hasFlash('pay_success')) {
+            $event = new UserActivateEvent();
+            $event->uid = Yii::$app->user->getId();
+            $this->trigger(self::EVENT_USER_ACTIVATE, $event);
+        }
+
         return $this->render('success',[
             'order' => $order
         ]);
