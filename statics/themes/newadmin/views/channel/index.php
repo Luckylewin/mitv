@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
 
-<?php Pjax::begin(); ?>    <?= GridView::widget([
+<?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
@@ -57,9 +57,9 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ],
     ]); ?>
-<?php Pjax::end(); ?></div>
+
 
 <p>
-    <?= Html::a('Create Channel', ['create'], ['class' => 'btn btn-success']) ?>
+    <?= Html::a('Create Channel2', \yii\helpers\Url::to(['channel/create', 'pid' => Yii::$app->request->get('pid',0)]), ['class' => 'btn btn-success']) ?>
     <?= Html::a('Back', \yii\helpers\Url::to(['channel/index']), ['class' => 'btn btn-default']) ?>
 </p>

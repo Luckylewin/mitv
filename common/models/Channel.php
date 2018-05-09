@@ -33,7 +33,7 @@ class Channel extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['pid', 'name'], 'required'],
+            [['pid', 'name', 'area_id'], 'required'],
             [['sort', 'pid', 'area_id'], 'integer'],
             [['image'], 'string', 'max' => 255],
             [['app_id'], 'safe'],

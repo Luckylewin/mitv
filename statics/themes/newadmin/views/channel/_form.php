@@ -15,7 +15,7 @@ use common\models\Country;
 
     <?php $form = ActiveForm::begin(); ?>
 
-
+    <?= $form->field($model, 'pid')->hiddenInput()->label(false); ?>
 
     <?php if(Yii::$app->request->get('area_id')) $model->area_id = Yii::$app->request->get('area_id'); ?>
 
@@ -28,8 +28,7 @@ use common\models\Country;
     ])->label('分类') ?>
 
 
-
-    <div class="well" style="display: <?= !$model->isNewRecord && $model->pid == 0? 'block' :'none' ?>">
+        <div class="well" style="display: <?= !$model->isNewRecord && $model->pid == 0? 'block' :'none' ?>">
         <?= $form->field($model, 'app_id')->checkboxList(ArrayHelper::map(App::getApp(),'id', 'name'))->label('支持的APP') ?>
     </div>
 

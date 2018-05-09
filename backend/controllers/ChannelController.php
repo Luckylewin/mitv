@@ -53,6 +53,11 @@ class ChannelController extends BaseController
     public function actionCreate()
     {
         $model = new Channel();
+        $model->pid = Yii::$app->request->get('pid', 0);
+        if ($model->pid) {
+            $channel = Channel::findOne($model->pid);
+            $model->area_id = $channel->area_id;
+        }
 
         if (Yii::$app->request->isPost) {
 
