@@ -90,7 +90,7 @@ class PayController extends Controller
         try {
             $payment->create($apiContext);
         } catch (PayPalConnectionException $e) {
-           throw new NotFoundHttpException($e->getData,"404");
+           throw new NotFoundHttpException($e->getMessage(),"404");
         }
 
         $approvalUrl = $payment->getApprovalLink();

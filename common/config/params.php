@@ -19,6 +19,12 @@ return [
         'BUCKET'=>'',//bucket
     ],
 
+    'PAYPAL' => [
+        'ACCOUNT' => '',
+        'CLIENT_ID' => '',
+        'SECRET' =>'',
+    ]
+
    /* 'mailer' => [
         'class' => 'yii\swiftmailer\Mailer',
         'viewPath' => '@common/mail',
